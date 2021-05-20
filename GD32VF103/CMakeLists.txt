@@ -1,0 +1,33 @@
+# Copyright (c) 2021, ATL Electronics
+# SPDX-License-Identifier: Apache-2.0
+
+zephyr_compile_definitions(HXTAL_VALUE=${CONFIG_BOARD_CLOCK})
+
+zephyr_include_directories(RISCV/drivers)
+zephyr_include_directories(standard_peripheral)
+zephyr_include_directories(standard_peripheral/Include)
+
+zephyr_library_sources_ifdef(RISCV/drivers/n200_func.c)
+zephyr_library_sources_ifdef(standard_peripheral/system_gd32vf103.c)
+
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_ADC   standard_peripheral/Source/gd32vf103_adc.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_BKP   standard_peripheral/Source/gd32vf103_bkp.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_CAN   standard_peripheral/Source/gd32vf103_can.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_CRC   standard_peripheral/Source/gd32vf103_crc.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_DAC   standard_peripheral/Source/gd32vf103_dac.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_DBG   standard_peripheral/Source/gd32vf103_dbg.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_DMA   standard_peripheral/Source/gd32vf103_dma.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_ECLIC standard_peripheral/Source/gd32vf103_eclic.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_EXMC  standard_peripheral/Source/gd32vf103_exmc.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_EXTI  standard_peripheral/Source/gd32vf103_exti.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_FMC   standard_peripheral/Source/gd32vf103_fmc.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_FWDGT standard_peripheral/Source/gd32vf103_fwdgt.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_GPIO  standard_peripheral/Source/gd32vf103_gpio.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_I2C   standard_peripheral/Source/gd32vf103_i2c.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_PMU   standard_peripheral/Source/gd32vf103_pmu.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_RCU   standard_peripheral/Source/gd32vf103_rcu.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_RTC   standard_peripheral/Source/gd32vf103_rtc.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_SPI   standard_peripheral/Source/gd32vf103_spi.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_TIMER standard_peripheral/Source/gd32vf103_timer.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_USART standard_peripheral/Source/gd32vf103_usart.c)
+zephyr_library_sources_ifdef(CONFIG_USE_GD32_WWDGT standard_peripheral/Source/gd32vf103_wwdgt.c)
