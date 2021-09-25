@@ -38,6 +38,15 @@ OF SUCH DAMAGE.
 
 #include "gd32vf103_can.h"
 
+/* CAN communication mode */
+#define CAN_NORMAL_MODE                    ((uint8_t)0x00U)             /*!< normal communication mode */
+#define CAN_LOOPBACK_MODE                  ((uint8_t)0x01U)             /*!< loopback communication mode */
+#define CAN_SILENT_MODE                    ((uint8_t)0x02U)             /*!< silent communication mode */
+#define CAN_SILENT_LOOPBACK_MODE           ((uint8_t)0x03U)             /*!< loopback and silent communication mode */
+
+/* CAN timeout */
+#define CAN_TIMEOUT                        ((uint32_t)0x0000FFFFU)      /*!< timeout value */
+
 #define CAN_ERROR_HANDLE(s)     do{}while(1)
 
 /*!
