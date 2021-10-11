@@ -1,0 +1,8 @@
+# editors
+.vscode
+
+# python
+.venv
+venv
+__pycache__
+.coverage
