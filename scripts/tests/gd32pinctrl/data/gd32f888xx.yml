@@ -1,0 +1,41 @@
+# Copyright (c) 2021 Teslabs Engineering S.L.
+# SPDX-License-Identifier: Apache 2.0
+
+model: af
+
+series: gd32f888
+
+variants:
+  - pincode: X
+    memories: [0, 1]
+  - pincode: X
+    memories: [2, 3]
+  - pincode: Y
+    memories: [0, 1]
+
+signal-configs:
+  PERIPH2_SIGA:
+    exclude-memories: [2, 3]
+  PERIPH2_SIGB:
+    exclude-memories: [2, 3]
+
+pins:
+  PA0:
+    pincodes: [X]
+    afs:
+      PERIPH0_SIGA: ANALOG
+      PERIPH1_SIGA: 7
+  PA1:
+    pincodes: [X]
+    afs:
+      PERIPH1_SIGB: 0
+  PA2:
+    pincodes: [X, Y]
+    afs:
+      PERIPH2_SIGA: 8
+      PERIPH0_SIGA: 10
+  PA3:
+    pincodes: [X, Y]
+    afs:
+      PERIPH1_SIGB: 6
+      PERIPH2_SIGA: 8

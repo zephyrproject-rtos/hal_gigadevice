@@ -1,0 +1,69 @@
+# Copyright (c) 2021 Teslabs Engineering S.L.
+# SPDX-License-Identifier: Apache 2.0
+
+model: afio
+
+series: gd32f999
+
+variants:
+  - pincode: X
+    memories: [0, 1]
+  - pincode: X
+    memories: [2, 3]
+  - pincode: Y
+    memories: [0, 1]
+
+signal-configs:
+  PERIPH0_SIGA:
+    modes: [analog]
+  PERIPH1_SIGA:
+    modes: [out]
+  PERIPH1_SIGB:
+    modes: [inp]
+    exclude-pincodes: [Y]
+  PERIPH2_SIGA:
+    modes: [out, inp]
+    exclude-memories: [2, 3]
+  PERIPH2_SIGB:
+    modes: [out, inp]
+    exclude-memories: [2, 3]
+  PERIPH2_SIGC:
+    modes: [out, inp]
+    exclude-memories: [2, 3]
+  PERIPH2_SIGD:
+    modes: [out, inp]
+    exclude-memories: [2, 3]
+
+pins:
+  PA0:
+    pincodes: [X]
+    afs: [PERIPH0_SIGA, PERIPH1_SIGA]
+  PA1:
+    pincodes: [X]
+    afs: [PERIPH1_SIGB]
+  PA2:
+    pincodes: [X, Y]
+    afs: [PERIPH2_SIGA]
+  PA3:
+    pincodes: [X, Y]
+    afs: [PERIPH2_SIGB]
+  PA4:
+    pincodes: [X, Y]
+    afs: [PERIPH2_SIGC]
+  PA5:
+    pincodes: [X, Y]
+    afs: [PERIPH2_SIGD]
+
+remaps:
+  PERIPH1_SIGA:
+    pins: [PA0, PA1]
+  PERIPH1_SIGB:
+    pins: [PA1, PA0]
+  PERIPH2_SIGA:
+    pins: [PA2, null, PA3, PA4]
+  PERIPH2_SIGB:
+    pins: [PA3, null, PA4, PA5]
+  PERIPH2_SIGC:
+    pins: [PA4, null, PA5, PA2]
+  PERIPH2_SIGD:
+    pins: [PA5, null, PA2, PA3]
