@@ -12,4 +12,5 @@ if(CONFIG_SOC_FAMILY_GD32)
 	add_subdirectory_ifdef(CONFIG_SOC_SERIES_GD32F403 GD32F403)
 	add_subdirectory_ifdef(CONFIG_SOC_SERIES_GD32VF103 GD32VF103)
 
+	zephyr_library_include_directories(include)
 endif()
