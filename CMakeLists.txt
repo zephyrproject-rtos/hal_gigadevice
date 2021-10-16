@@ -1,7 +1,7 @@
 # Copyright (c) 2021, ATL Electronics
 # SPDX-License-Identifier: Apache-2.0
 
-if(CONFIG_SOC_FAMILY_GD32)
+if(CONFIG_HAS_GDLIB)
 
 	zephyr_library()
 
