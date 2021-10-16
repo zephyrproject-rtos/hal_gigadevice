@@ -12,8 +12,8 @@ zephyr_include_directories(RISCV/drivers)
 zephyr_include_directories(standard_peripheral)
 zephyr_include_directories(standard_peripheral/Include)
 
-zephyr_library_sources_ifdef(RISCV/drivers/n200_func.c)
-zephyr_library_sources_ifdef(standard_peripheral/system_gd32vf103.c)
+zephyr_library_sources(RISCV/drivers/n200_func.c)
+zephyr_library_sources(standard_peripheral/system_gd32vf103.c)
 
 zephyr_library_sources_ifdef(CONFIG_USE_GD32_ADC   standard_peripheral/Source/gd32vf103_adc.c)
 zephyr_library_sources_ifdef(CONFIG_USE_GD32_BKP   standard_peripheral/Source/gd32vf103_bkp.c)
