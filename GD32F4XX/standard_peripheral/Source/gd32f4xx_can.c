@@ -88,7 +88,7 @@ void can_struct_para_init(can_struct_type_enum type, void* p_struct)
             ((can_parameter_struct*)p_struct)->time_segment_2 = CAN_BT_BS2_1TQ;
             ((can_parameter_struct*)p_struct)->time_triggered = DISABLE;
             ((can_parameter_struct*)p_struct)->trans_fifo_order = DISABLE;
-            ((can_parameter_struct*)p_struct)->working_mode = CAN_NORMAL_MODE;
+            ((can_parameter_struct*)p_struct)->working_mode = GD32_CAN_NORMAL_MODE;
             
             break;
         /* used for can_filter_init() */
@@ -142,7 +142,7 @@ void can_struct_para_init(can_struct_type_enum type, void* p_struct)
     \param[in]  can_periph
       \arg        CANx(x=0,1)
     \param[in]  can_parameter_init: parameters for CAN initializtion
-      \arg        working_mode: CAN_NORMAL_MODE, CAN_LOOPBACK_MODE, CAN_SILENT_MODE, CAN_SILENT_LOOPBACK_MODE
+      \arg        working_mode: GD32_CAN_NORMAL_MODE, GD32_CAN_LOOPBACK_MODE, GD32_CAN_SILENT_MODE, GD32_CAN_SILENT_LOOPBACK_MODE
       \arg        resync_jump_width: CAN_BT_SJW_xTQ(x=1, 2, 3, 4)
       \arg        time_segment_1: CAN_BT_BS1_xTQ(1..16)
       \arg        time_segment_2: CAN_BT_BS2_xTQ(1..8)
@@ -158,7 +158,7 @@ void can_struct_para_init(can_struct_type_enum type, void* p_struct)
 */
 ErrStatus can_init(uint32_t can_periph, can_parameter_struct* can_parameter_init)
 {
-    uint32_t timeout = CAN_TIMEOUT;
+    uint32_t timeout = GD32_CAN_TIMEOUT;
     ErrStatus flag = ERROR;
     
     /* disable sleep mode */
@@ -218,7 +218,7 @@ ErrStatus can_init(uint32_t can_periph, can_parameter_struct* can_parameter_init
         }  
         /* disable initialize mode */
         CAN_CTL(can_periph) &= ~CAN_CTL_IWMOD;
-        timeout = CAN_TIMEOUT;
+        timeout = GD32_CAN_TIMEOUT;
         /* wait the ACK */
         while((CAN_STAT_IWS == (CAN_STAT(can_periph) & CAN_STAT_IWS)) && (0U != timeout)){
             timeout--;
@@ -671,7 +671,7 @@ ErrStatus can_working_mode_set(uint32_t can_periph, uint8_t working_mode)
 {
     ErrStatus flag = ERROR;
     /* timeout for IWS or also for SLPWS bits */
-    uint32_t timeout = CAN_TIMEOUT; 
+    uint32_t timeout = GD32_CAN_TIMEOUT;
     
     if(CAN_MODE_INITIALIZE == working_mode){
         /* disable sleep mode */
@@ -729,7 +729,7 @@ ErrStatus can_working_mode_set(uint32_t can_periph, uint8_t working_mode)
 ErrStatus can_wakeup(uint32_t can_periph)
 {
     ErrStatus flag = ERROR;
-    uint32_t timeout = CAN_TIMEOUT;
+    uint32_t timeout = GD32_CAN_TIMEOUT;
     
     /* wakeup */
     CAN_CTL(can_periph) &= ~CAN_CTL_SLPWMOD;
