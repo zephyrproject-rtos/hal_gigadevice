@@ -2,3 +2,5 @@ name: hal_gigadevice
 build:
   cmake-ext: True
   kconfig-ext: True
+  settings:
+    dts_root: .
