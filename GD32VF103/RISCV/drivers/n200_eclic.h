@@ -3,25 +3,26 @@
 #ifndef N200_ECLIC_H
 #define N200_ECLIC_H
 
-#include <riscv_const.h>
+#include <gd32vf103.h>
+#include <stddef.h>
 
-#define ECLICINTCTLBITS  4
+#define ECLICINTCTLBITS __ECLIC_INTCTLBITS
 
 /*ECLIC memory map */
 /* Offset */
 /* 0x0000       1B          RW        ecliccfg */
-#define ECLIC_CFG_OFFSET            0x0
+#define ECLIC_CFG_OFFSET  offsetof(CLIC_Type, CFG)
 /*  0x0004       4B          R         eclicinfo */
-#define ECLIC_INFO_OFFSET           0x4
+#define ECLIC_INFO_OFFSET offsetof(CLIC_Type, INFO)
 /*  0x000B       1B          RW        mintthresh */
-#define ECLIC_MTH_OFFSET            0xB
+#define ECLIC_MTH_OFFSET  offsetof(CLIC_Type, MTH)
 
 /* 0x1000+4*i   1B/input    RW        eclicintip[i] */
-#define ECLIC_INT_IP_OFFSET            _AC(0x1000,UL)
+#define ECLIC_INT_IP_OFFSET   (offsetof(CLIC_Type, CTRL) + offsetof(CLIC_CTRL_Type, INTIP) )
 /* 0x1001+4*i   1B/input    RW        eclicintie[i] */
-#define ECLIC_INT_IE_OFFSET            _AC(0x1001,UL)
+#define ECLIC_INT_IE_OFFSET   (offsetof(CLIC_Type, CTRL) + offsetof(CLIC_CTRL_Type, INTIE) )
 /* 0x1002+4*i   1B/input    RW        eclicintattr[i]*/
-#define ECLIC_INT_ATTR_OFFSET          _AC(0x1002,UL)
+#define ECLIC_INT_ATTR_OFFSET (offsetof(CLIC_Type, CTRL) + offsetof(CLIC_CTRL_Type, INTATTR) )
 
 #define ECLIC_INT_ATTR_SHV              0x01
 #define ECLIC_INT_ATTR_TRIG_LEVEL       0x00
@@ -30,13 +31,12 @@
 #define ECLIC_INT_ATTR_TRIG_NEG         0x04
 
 /* 0x1003+4*i   1B/input    RW        eclicintctl[i] */
-#define ECLIC_INT_CTRL_OFFSET          _AC(0x1003,UL)
+#define ECLIC_INT_CTRL_OFFSET (offsetof(CLIC_Type, CTRL) + offsetof(CLIC_CTRL_Type, INTCTRL) )
 
-#define ECLIC_ADDR_BASE           0xd2000000
+#define ECLIC_ADDR_BASE __ECLIC_BASEADDR
 
-
-#define ECLIC_CFG_NLBITS_MASK          _AC(0x1E,UL)
-#define ECLIC_CFG_NLBITS_LSB     (1u)
+#define ECLIC_CFG_NLBITS_MASK CLIC_CLICCFG_NLBIT_Msk
+#define ECLIC_CFG_NLBITS_LSB  CLIC_CLICCFG_NLBIT_Pos
 
 #define MSIP_HANDLER    eclic_msip_handler
 #define MTIME_HANDLER   eclic_mtip_handler

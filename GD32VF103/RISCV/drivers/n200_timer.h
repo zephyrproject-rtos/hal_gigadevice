@@ -3,14 +3,17 @@
 #ifndef N200_TIMER_H
 #define N200_TIMER_H
 
-#define TIMER_MSIP 0xFFC
-#define TIMER_MSIP_size   0x4
-#define TIMER_MTIMECMP 0x8
-#define TIMER_MTIMECMP_size 0x8
-#define TIMER_MTIME 0x0
-#define TIMER_MTIME_size 0x8
+#include <gd32vf103.h>
+#include <stddef.h>
 
-#define TIMER_CTRL_ADDR           0xd1000000
+#define TIMER_MSIP offsetof(SysTimer_Type, MSIP)
+#define TIMER_MSIP_size sizeof(((SysTimer_Type*)0)->MSIP)
+#define TIMER_MTIMECMP offsetof(SysTimer_Type, MTIMERCMP)
+#define TIMER_MTIMECMP_size sizeof(((SysTimer_Type*)0)->MTIMERCMP)
+#define TIMER_MTIME offsetof(SysTimer_Type, MTIMER)
+#define TIMER_MTIME_size sizeof(((SysTimer_Type*)0)->MTIMER)
+
+#define TIMER_CTRL_ADDR           __SYSTIMER_BASEADDR
 #define TIMER_REG(offset)         _REG32(TIMER_CTRL_ADDR, offset)
 #define TIMER_FREQ                ((uint32_t)SystemCoreClock/4)
 

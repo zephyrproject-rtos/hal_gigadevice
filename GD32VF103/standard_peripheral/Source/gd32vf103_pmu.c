@@ -100,17 +100,17 @@ void pmu_lvd_disable(void)
 void pmu_to_sleepmode(uint8_t sleepmodecmd)
 {
     /* clear sleepdeep bit of RISC-V system control register */
-    clear_csr(0x811U, 0x1U);
+    __RV_CSR_CLEAR(0x811U, 0x1U);
 
     /* select WFI or WFE command to enter sleep mode */
     if(WFI_CMD == sleepmodecmd){
         __WFI();
     }else{
-        clear_csr(mstatus, MSTATUS_MIE);
-        set_csr(0x810U, 0x1U);
+        __RV_CSR_CLEAR(mstatus, MSTATUS_MIE);
+        __RV_CSR_SET(0x810U, 0x1U);
         __WFI();
-        clear_csr(0x810U, 0x1U);
-        set_csr(mstatus, MSTATUS_MIE);
+        __RV_CSR_CLEAR(0x810U, 0x1U);
+        __RV_CSR_SET(mstatus, MSTATUS_MIE);
     }
 }
 
@@ -134,19 +134,19 @@ void pmu_to_deepsleepmode(uint32_t ldo,uint8_t deepsleepmodecmd)
     /* set ldolp bit according to pmu_ldo */
     PMU_CTL |= ldo;
     /* set CSR_SLEEPVALUE bit of RISC-V system control register */
-    set_csr(0x811U, 0x1U);
+    __RV_CSR_SET(0x811U, 0x1U);
     /* select WFI or WFE command to enter deepsleep mode */
     if(WFI_CMD == deepsleepmodecmd){
         __WFI();
     }else{
-        clear_csr(mstatus, MSTATUS_MIE);
-        set_csr(0x810U, 0x1U);
+        __RV_CSR_CLEAR(mstatus, MSTATUS_MIE);
+        __RV_CSR_SET(0x810U, 0x1U);
         __WFI();
-        clear_csr(0x810U, 0x1U);
-        set_csr(mstatus, MSTATUS_MIE);
+        __RV_CSR_CLEAR(0x810U, 0x1U);
+        __RV_CSR_SET(mstatus, MSTATUS_MIE);
     }
     /* reset sleepdeep bit of RISC-V system control register */
-    clear_csr(0x811U, 0x1U);
+    __RV_CSR_CLEAR(0x811U, 0x1U);
 }
 
 /*!
@@ -161,7 +161,7 @@ void pmu_to_deepsleepmode(uint32_t ldo,uint8_t deepsleepmodecmd)
 void pmu_to_standbymode(uint8_t standbymodecmd)
 {
     /* set CSR_SLEEPVALUE bit of RISC-V system control register */
-    set_csr(0x811U, 0x1U);
+    __RV_CSR_SET(0x811U, 0x1U);
 
     /* set stbmod bit */
     PMU_CTL |= PMU_CTL_STBMOD;
@@ -173,13 +173,13 @@ void pmu_to_standbymode(uint8_t standbymodecmd)
     if(WFI_CMD == standbymodecmd){
         __WFI();
     }else{
-        clear_csr(mstatus, MSTATUS_MIE);
-        set_csr(0x810U, 0x1U);
+        __RV_CSR_CLEAR(mstatus, MSTATUS_MIE);
+        __RV_CSR_SET(0x810U, 0x1U);
         __WFI();
-        clear_csr(0x810U, 0x1U);
-        set_csr(mstatus, MSTATUS_MIE);
+        __RV_CSR_CLEAR(0x810U, 0x1U);
+        __RV_CSR_SET(mstatus, MSTATUS_MIE);
     }
-    clear_csr(0x811U, 0x1U);
+    __RV_CSR_CLEAR(0x811U, 0x1U);
 }
 
 /*!

@@ -57,6 +57,6 @@ OF SUCH DAMAGE.
 #include "gd32vf103_timer.h"
 #include "gd32vf103_usart.h"
 #include "gd32vf103_wwdgt.h"
-#include "n200_func.h"
+#include "nmsis_core.h"
 
 #endif /* GD32VF103_LIBOPT_H */

@@ -229,6 +229,19 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrStatus;
 #define CRC_BASE              (AHB1_BUS_BASE + 0x0000B000U)  /*!< CRC base address                 */
 #define USBFS_BASE            (AHB1_BUS_BASE + 0x0FFE8000U)  /*!< USBFS base address               */
 
+#define __ECLIC_PRESENT       1
+#define __SYSTIMER_PRESENT    1
+#define __PMP_PRESENT         1
+#define __DSP_PRESENT         0
+#define __FPU_PRESENT         0
+#define __DCACHE_PRESENT      0
+#define __ICACHE_PRESENT      0
+
+#define __SYSTIMER_BASEADDR   ((uint32_t)0xd1000000U)
+#define __ECLIC_BASEADDR      ((uint32_t)0xd2000000U)
+
+#define __PMP_ENTRY_NUM       16
+
 /* define marco USE_STDPERIPH_DRIVER */
 #if !defined  USE_STDPERIPH_DRIVER
 #define USE_STDPERIPH_DRIVER

@@ -48,7 +48,7 @@ OF SUCH DAMAGE.
 void eclic_global_interrupt_enable(void)
 {
     /* set machine interrupt enable bit */
-    set_csr(mstatus, MSTATUS_MIE);
+    __RV_CSR_SET(mstatus, MSTATUS_MIE);
 }
 
 /*!
@@ -60,7 +60,7 @@ void eclic_global_interrupt_enable(void)
 void eclic_global_interrupt_disable(void)
 {
     /* clear machine interrupt enable bit */
-    clear_csr(mstatus, MSTATUS_MIE);
+    __RV_CSR_CLEAR(mstatus, MSTATUS_MIE);
 }
 
 /*!
@@ -76,7 +76,7 @@ void eclic_global_interrupt_disable(void)
 */
 void eclic_priority_group_set(uint8_t prigroup)
 {
-    eclic_set_nlbits(prigroup);
+    __ECLIC_SetCfgNlbits(prigroup);
 }
 
 /*!
@@ -89,9 +89,9 @@ void eclic_priority_group_set(uint8_t prigroup)
 */
 void eclic_irq_enable(uint32_t source, uint8_t level, uint8_t priority)
 {
-    eclic_enable_interrupt(source);
-    eclic_set_irq_lvl_abs(source, level);
-    eclic_set_irq_priority(source, priority);
+    ECLIC->CTRL[source].INTIE = 1;
+    ECLIC_SetLevelIRQ(source, level);
+    ECLIC_SetPriorityIRQ(source, priority);
 }
 
 /*!
@@ -102,7 +102,7 @@ void eclic_irq_enable(uint32_t source, uint8_t level, uint8_t priority)
 */
 void eclic_irq_disable(uint32_t source)
 {
-    eclic_disable_interrupt(source);
+    ECLIC->CTRL[source].INTIE = 0;
 }
 
 /*!
@@ -125,5 +125,5 @@ void eclic_system_reset(void)
 */
 void eclic_send_event(void)
 {
-    set_csr(0x812U, 0x1U);
+    __RV_CSR_SET(0x812U, 0x1U);
 }

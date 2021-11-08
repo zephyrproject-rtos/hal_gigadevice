@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "riscv_encoding.h"
-#include "n200_func.h"
+#include "nmsis_core.h"
 
 extern uint32_t disable_mcycle_minstret();
 void _init()
@@ -12,8 +12,15 @@ void _init()
 	SystemInit();
 
 	//ECLIC init
-	eclic_init(ECLIC_NUM_INTERRUPTS);
-	eclic_mode_enable();
+	ECLIC->CFG = 0U;
+	ECLIC->MTH = 0U;
+	for(int i=0; i<ECLIC_NUM_INTERRUPTS; i++) {
+		ECLIC->CTRL[i].INTIP   = 0U;
+		ECLIC->CTRL[i].INTIE   = 0U;
+		ECLIC->CTRL[i].INTATTR = 0U;
+		ECLIC->CTRL[i].INTCTRL = 0U;
+	}
+	__set_exc_entry(__RV_CSR_READ(CSR_MTVEC));
 
 	//printf("After ECLIC mode enabled, the mtvec value is %x \n\n\r", read_csr(mtvec));
 

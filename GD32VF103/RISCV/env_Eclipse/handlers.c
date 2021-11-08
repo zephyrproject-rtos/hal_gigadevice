@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "riscv_encoding.h"
-#include "n200_func.h"
+#include "nmsis_core.h"
 
 __attribute__((weak)) uintptr_t handle_nmi()
 {
@@ -20,8 +20,8 @@ __attribute__((weak)) uintptr_t handle_trap(uintptr_t mcause, uintptr_t sp)
   }
   write(1, "trap\n", 5);
   //printf("In trap handler, the mcause is %d\n", mcause);
-  //printf("In trap handler, the mepc is 0x%x\n", read_csr(mepc));
-  //printf("In trap handler, the mtval is 0x%x\n", read_csr(mbadaddr));
+  //printf("In trap handler, the mepc is 0x%x\n", __RV_CSR_READ(mepc));
+  //printf("In trap handler, the mtval is 0x%x\n", __RV_CSR_READ(mbadaddr));
   _exit(mcause);
   return 0;
 }

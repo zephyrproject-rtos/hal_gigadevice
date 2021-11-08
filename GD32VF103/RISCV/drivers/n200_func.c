@@ -4,17 +4,25 @@
 #include <stdlib.h>
 #include <string.h>
 
+#if   defined (__ICCRISCV__)
+    #include "compiler.h"
+#elif defined ( __GNUC__ )
+    #include <unistd.h>
+#endif
+
 #include "riscv_encoding.h"
+#include "n200_eclic.h"
+#include "n200_timer.h"
 #include "n200_func.h"
 
 /* Configure PMP to make all the address space accesable and executable */
 void pmp_open_all_space(void){
     /* Config entry0 addr to all 1s to make the range cover all space */
-    __asm__ volatile ("li x6, 0xffffffff":::"x6");
-    __asm__ volatile ("csrw pmpaddr0, x6":::);
+    asm volatile ("li x6, 0xffffffff":::"x6");
+    asm volatile ("csrw pmpaddr0, x6":::);
     /* Config entry0 cfg to make it NAPOT address mode, and R/W/X okay */
-    __asm__ volatile ("li x6, 0x7f":::"x6");
-    __asm__ volatile ("csrw pmpcfg0, x6":::);
+    asm volatile ("li x6, 0x7f":::"x6");
+    asm volatile ("csrw pmpcfg0, x6":::);
 }
 
 void switch_m2u_mode(void){
@@ -26,11 +34,11 @@ void switch_m2u_mode(void){
     /* printf("\nIn the m2u function, the mstatus is 0x%x\n", read_csr(mstatus)); */
     /* printf("\nIn the m2u function, the mepc is 0x%x\n", read_csr(mepc)); */
 #if defined ( __GNUC__ )
-    __asm__ volatile ("la x6, 1f    ":::"x6");
+    asm volatile ("la x6, 1f    ":::"x6");
 #endif
-    __asm__ volatile ("csrw mepc, x6":::);
-    __asm__ volatile ("mret":::);
-    __asm__ volatile ("1:":::);
+    asm volatile ("csrw mepc, x6":::);
+    asm volatile ("mret":::);
+    asm volatile ("1:":::);
 } 
 
 uint32_t mtime_lo(void)

@@ -5,8 +5,11 @@
 
 
 #include <stddef.h>
-#include "n200_timer.h"
-#include "n200_eclic.h"
+
+#define write_csr __RV_CSR_WRITE
+#define  read_csr __RV_CSR_READ
+#define   set_csr __RV_CSR_SET
+#define clear_csr __RV_CSR_CLEAR
 
 #define	ECLIC_GROUP_LEVEL0_PRIO4        0
 #define	ECLIC_GROUP_LEVEL1_PRIO3        1
@@ -79,27 +82,5 @@ void eclic_set_nonvmode(uint32_t source);
 void eclic_set_level_trig(uint32_t source);
 void eclic_set_posedge_trig(uint32_t source);
 void eclic_set_negedge_trig(uint32_t source);
-
-
-/** \brief  Wait For Interrupt
-
-    Wait For Interrupt is a hint instruction that suspends execution
-    until one of a number of events occurs.
- */
-__attribute__( ( always_inline ) ) static inline void __WFI(void) {
-    __asm volatile ("wfi");
-}
-
-/** \brief  Wait For Event
-
-    Wait For Event is a hint instruction that permits the processor to enter
-    a low-power state until one of a number of events occurs.
- */
-__attribute__( ( always_inline ) ) static inline  void __WFE(void) {
-    __asm volatile ("csrs 0x810, 0x1");
-    __asm volatile ("wfi");
-    __asm volatile ("csrc 0x810, 0x1");
-}
-
 
 #endif
