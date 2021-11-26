@@ -278,6 +278,10 @@
 #define CTC_SYNC_PD15 \
 	GD32_PINMUX_AF('D', 15, AF0)
 
+/* DAC_OUT0 */
+#define DAC_OUT0_PA4 \
+	GD32_PINMUX_AF('A', 4, ANALOG)
+
 /* DAC_OUT1 */
 #define DAC_OUT1_PA5 \
 	GD32_PINMUX_AF('A', 5, ANALOG)
