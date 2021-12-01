@@ -152,3 +152,29 @@ pins:
       # USART1_CTS if AF7 is selected
       USART1_CTS: 7
 ```
+
+## Exception
+
+### GD32F405
+For GD32F405Vx series, LQFP100 package have 82 I/O pins, but BGA100 package only have 81 I/O pins. PD8 is lost on BGA100 package.
+
+### GD32F350
+For GD32F350xB/8/6 devices, there have some invalid signal mapping for USART0, I2C0 and SPI0.
+This issue cause by peripheral number increased on GD32F350xB/8/6, related pins already mapping
+to another signals.
+
+Below table show the invalid signal, pins mapping.
+
+| SIGNAL     | PINS      |
+| ---------- | --------- |
+| USART0_CTS | PA0       |
+| USART0_RTS | PA1       |
+| USART0_TX  | PA2, PA14 |
+| USART0_RX  | PA3, PA15 |
+| USART0_CK  | PA4       |
+| I2C0_SCL   | PB10, PF6 |
+| I2C0_SDA   | PB11, PF7 |
+| SPI0_NSS   | PB12      |
+| SPI0_SCK   | PB13      |
+| SPI0_MISO  | PB14      |
+| SPI0_MOSI  | PB15      |
