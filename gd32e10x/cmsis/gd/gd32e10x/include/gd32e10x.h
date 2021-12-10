@@ -60,6 +60,14 @@ OF SUCH DAMAGE.
   #error "Please select the target board type used in your application (in gd32e10x.h file)"
   #endif
 #endif /* high speed crystal oscillator value */
+
+#if HXTAL_VALUE == 8000000
+  #define HXTAL_VALUE_8M  HXTAL_VALUE
+#elif HXTAL_VALUE == 25000000
+  #define HXTAL_VALUE_25M  HXTAL_VALUE
+#else
+  #error "GD32E10X lib only support 8M and 25M oscillator (HXTAL)"
+#endif
  
 /* define startup timeout value of high speed crystal oscillator (HXTAL) */
 #if !defined  (HXTAL_STARTUP_TIMEOUT)
