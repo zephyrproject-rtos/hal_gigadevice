@@ -133,6 +133,8 @@
 	GD32_PINMUX_AF('B', 13, ANALOG)
 #define ANALOG_PB14 \
 	GD32_PINMUX_AF('B', 14, ANALOG)
+#define ANALOG_PB15 \
+	GD32_PINMUX_AF('B', 15, ANALOG)
 #define ANALOG_PC0 \
 	GD32_PINMUX_AF('C', 0, ANALOG)
 #define ANALOG_PC1 \
@@ -339,6 +341,8 @@
 	GD32_PINMUX_AF('B', 13, AF15)
 #define EVENTOUT_PB14 \
 	GD32_PINMUX_AF('B', 14, AF15)
+#define EVENTOUT_PB15 \
+	GD32_PINMUX_AF('B', 15, AF15)
 #define EVENTOUT_PC0 \
 	GD32_PINMUX_AF('C', 0, AF15)
 #define EVENTOUT_PC1 \
@@ -457,6 +461,8 @@
 	GD32_PINMUX_AF('C', 6, AF5)
 
 /* I2S1_SD */
+#define I2S1_SD_PB15 \
+	GD32_PINMUX_AF('B', 15, AF5)
 #define I2S1_SD_PC1 \
 	GD32_PINMUX_AF('C', 1, AF7)
 #define I2S1_SD_PC3 \
@@ -531,6 +537,10 @@
 /* NJTRST */
 #define NJTRST_PB4 \
 	GD32_PINMUX_AF('B', 4, AF0)
+
+/* RTC_REFIN */
+#define RTC_REFIN_PB15 \
+	GD32_PINMUX_AF('B', 15, AF0)
 
 /* SDIO_CK */
 #define SDIO_CK_PB2 \
@@ -619,6 +629,8 @@
 	GD32_PINMUX_AF('C', 2, AF5)
 
 /* SPI1_MOSI */
+#define SPI1_MOSI_PB15 \
+	GD32_PINMUX_AF('B', 15, AF5)
 #define SPI1_MOSI_PC1 \
 	GD32_PINMUX_AF('C', 1, AF7)
 #define SPI1_MOSI_PC3 \
@@ -711,6 +723,8 @@
 /* TIMER0_CH2_ON */
 #define TIMER0_CH2_ON_PB1 \
 	GD32_PINMUX_AF('B', 1, AF1)
+#define TIMER0_CH2_ON_PB15 \
+	GD32_PINMUX_AF('B', 15, AF1)
 
 /* TIMER0_CH3 */
 #define TIMER0_CH3_PA11 \
@@ -727,6 +741,10 @@
 /* TIMER11_CH0 */
 #define TIMER11_CH0_PB14 \
 	GD32_PINMUX_AF('B', 14, AF9)
+
+/* TIMER11_CH1 */
+#define TIMER11_CH1_PB15 \
+	GD32_PINMUX_AF('B', 15, AF9)
 
 /* TIMER12_CH0 */
 #define TIMER12_CH0_PA6 \
@@ -873,6 +891,8 @@
 /* TIMER7_CH2_ON */
 #define TIMER7_CH2_ON_PB1 \
 	GD32_PINMUX_AF('B', 1, AF3)
+#define TIMER7_CH2_ON_PB15 \
+	GD32_PINMUX_AF('B', 15, AF3)
 
 /* TIMER7_CH3 */
 #define TIMER7_CH3_PC9 \
@@ -1033,6 +1053,10 @@
 /* USBHS_DM */
 #define USBHS_DM_PB14 \
 	GD32_PINMUX_AF('B', 14, AF12)
+
+/* USBHS_DP */
+#define USBHS_DP_PB15 \
+	GD32_PINMUX_AF('B', 15, AF12)
 
 /* USBHS_ID */
 #define USBHS_ID_PB12 \
