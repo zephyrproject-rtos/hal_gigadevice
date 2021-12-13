@@ -6,6 +6,70 @@
 
 #include "gd32-af.h"
 
+/* ADC_IN0 */
+#define ADC_IN0_PA0 \
+	GD32_PINMUX_AF('A', 0, ANALOG)
+
+/* ADC_IN1 */
+#define ADC_IN1_PA1 \
+	GD32_PINMUX_AF('A', 1, ANALOG)
+
+/* ADC_IN10 */
+#define ADC_IN10_PC0 \
+	GD32_PINMUX_AF('C', 0, ANALOG)
+
+/* ADC_IN11 */
+#define ADC_IN11_PC1 \
+	GD32_PINMUX_AF('C', 1, ANALOG)
+
+/* ADC_IN12 */
+#define ADC_IN12_PC2 \
+	GD32_PINMUX_AF('C', 2, ANALOG)
+
+/* ADC_IN13 */
+#define ADC_IN13_PC3 \
+	GD32_PINMUX_AF('C', 3, ANALOG)
+
+/* ADC_IN14 */
+#define ADC_IN14_PC4 \
+	GD32_PINMUX_AF('C', 4, ANALOG)
+
+/* ADC_IN15 */
+#define ADC_IN15_PC5 \
+	GD32_PINMUX_AF('C', 5, ANALOG)
+
+/* ADC_IN2 */
+#define ADC_IN2_PA2 \
+	GD32_PINMUX_AF('A', 2, ANALOG)
+
+/* ADC_IN3 */
+#define ADC_IN3_PA3 \
+	GD32_PINMUX_AF('A', 3, ANALOG)
+
+/* ADC_IN4 */
+#define ADC_IN4_PA4 \
+	GD32_PINMUX_AF('A', 4, ANALOG)
+
+/* ADC_IN5 */
+#define ADC_IN5_PA5 \
+	GD32_PINMUX_AF('A', 5, ANALOG)
+
+/* ADC_IN6 */
+#define ADC_IN6_PA6 \
+	GD32_PINMUX_AF('A', 6, ANALOG)
+
+/* ADC_IN7 */
+#define ADC_IN7_PA7 \
+	GD32_PINMUX_AF('A', 7, ANALOG)
+
+/* ADC_IN8 */
+#define ADC_IN8_PB0 \
+	GD32_PINMUX_AF('B', 0, ANALOG)
+
+/* ADC_IN9 */
+#define ADC_IN9_PB1 \
+	GD32_PINMUX_AF('B', 1, ANALOG)
+
 /* ANALOG */
 #define ANALOG_PA0 \
 	GD32_PINMUX_AF('A', 0, ANALOG)
@@ -137,6 +201,10 @@
 	GD32_PINMUX_AF('A', 8, AF6)
 #define CTC_SYNC_PF0 \
 	GD32_PINMUX_AF('F', 0, AF0)
+
+/* DAC0_OUT */
+#define DAC0_OUT_PA4 \
+	GD32_PINMUX_AF('A', 4, ANALOG)
 
 /* EVENTOUT */
 #define EVENTOUT_PA1 \
