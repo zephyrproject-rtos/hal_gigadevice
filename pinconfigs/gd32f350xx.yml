@@ -89,6 +89,7 @@ pins:
   PA0:
     pincodes: [G, K, C, R]
     afs:
+      ADC_IN0: ANALOG
       USART0_CTS: 1
       USART1_CTS: 1
       TIMER1_CH0: 2
@@ -99,6 +100,7 @@ pins:
   PA1:
     pincodes: [G, K, C, R]
     afs:
+      ADC_IN1: ANALOG
       EVENTOUT: 0
       USART0_RTS: 1
       USART1_RTS: 1
@@ -108,6 +110,7 @@ pins:
   PA2:
     pincodes: [G, K, C, R]
     afs:
+      ADC_IN2: ANALOG
       TIMER14_CH0: 0
       USART0_TX: 1
       USART1_TX: 1
@@ -117,6 +120,7 @@ pins:
   PA3:
     pincodes: [G, K, C, R]
     afs:
+      ADC_IN3: ANALOG
       TIMER14_CH1: 0
       USART0_RX: 1
       USART1_RX: 1
@@ -125,6 +129,8 @@ pins:
   PA4:
     pincodes: [G, K, C, R]
     afs:
+      ADC_IN4: ANALOG
+      DAC0_OUT: ANALOG
       SPI0_NSS: 0
       I2S0_WS: 0
       USART0_CK: 1
@@ -135,6 +141,7 @@ pins:
   PA5:
     pincodes: [G, K, C, R]
     afs:
+      ADC_IN5: ANALOG
       SPI0_SCK: 0
       I2S0_CK: 0
       CEC: 1
@@ -144,6 +151,7 @@ pins:
   PA6:
     pincodes: [G, K, C, R]
     afs:
+      ADC_IN6: ANALOG
       SPI0_MISO: 0
       I2S0_MCK: 0
       TIMER2_CH0: 1
@@ -155,6 +163,7 @@ pins:
   PA7:
     pincodes: [G, K, C, R]
     afs:
+      ADC_IN7: ANALOG
       SPI0_MOSI: 0
       I2S0_SD: 0
       TIMER2_CH1: 1
@@ -237,6 +246,7 @@ pins:
   PB0:
     pincodes: [G, K, C, R]
     afs:
+      ADC_IN8: ANALOG
       EVENTOUT: 0
       TIMER2_CH2: 1
       TIMER0_CH1_ON: 2
@@ -245,6 +255,7 @@ pins:
   PB1:
     pincodes: [G, K, C, R]
     afs:
+      ADC_IN9: ANALOG
       TIMER13_CH0: 0
       TIMER2_CH3: 1
       TIMER0_CH2_ON: 2
@@ -360,26 +371,32 @@ pins:
   PC0:
     pincodes: [R]
     afs:
+      ADC_IN10: ANALOG
       EVENTOUT: 0
   PC1:
     pincodes: [R]
     afs:
+      ADC_IN11: ANALOG
       EVENTOUT: 0
   PC2:
     pincodes: [R]
     afs:
+      ADC_IN12: ANALOG
       EVENTOUT: 0
   PC3:
     pincodes: [R]
     afs:
+      ADC_IN13: ANALOG
       EVENTOUT: 0
   PC4:
     pincodes: [R]
     afs:
+      ADC_IN14: ANALOG
       EVENTOUT: 0
   PC5:
     pincodes: [R]
     afs:
+      ADC_IN15: ANALOG
       TSI_G2_IO0: 0
   PC6:
     pincodes: [R]
