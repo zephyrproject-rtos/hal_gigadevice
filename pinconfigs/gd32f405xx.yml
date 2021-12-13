@@ -354,6 +354,17 @@ pins:
       TIMER11_CH0: 9
       USBHS_DM: 12
       EVENTOUT: 15
+  PB15:
+    pincodes: [R, V, Z]
+    afs:
+      RTC_REFIN: 0
+      TIMER0_CH2_ON: 1
+      TIMER7_CH2_ON: 3
+      SPI1_MOSI: 5
+      I2S1_SD: 5
+      TIMER11_CH1: 9
+      USBHS_DP: 12
+      EVENTOUT: 15
   PC0:
     pincodes: [R, V, Z]
     afs:
