@@ -111,3 +111,7 @@ conflict resolution. See below list with the proposed solution:
 #define BIT(x)                       ((uint32_t)((uint32_t)0x01U<<(x)))
 +#endif
 ```
+- i2c-gd32 driver needs to know the clock frequency boundary. Fix it with
+  two step work. First move I2CCLK_MAX and I2CCLK_MIN marco from i2c source
+  file to header file. Then split the I2CCLK_MIN for each supported transfer
+  mode.
