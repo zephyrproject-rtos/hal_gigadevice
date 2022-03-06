@@ -38,7 +38,7 @@
 /** Mode field position. */
 #define GD32_MODE_POS 8U
 /** Remap field mask. */
-#define GD32_REMAP_MSK 0x1FFU
+#define GD32_REMAP_MSK 0x3FFU
 /** Remap field position. */
 #define GD32_REMAP_POS 10U
 
