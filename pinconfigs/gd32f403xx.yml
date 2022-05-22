@@ -588,7 +588,7 @@ pins:
     pincodes: [V, R]
     afs: [ADC012_IN12]
   PC3:
-    pincodes: [V, R]
+    pincodes: [Z, V, R]
     afs: [ADC012_IN13]
   PC4:
     pincodes: [V, R]
