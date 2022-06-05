@@ -1,0 +1,1175 @@
+# GD32E507XX pin definitions
+#
+# Sources:
+# - GD32E507XX Datasheet (Revision 1.4)
+# - GD32E50X User Manual (Revision 1.0)
+#
+# Pin codes:
+#
+# - 144 pins: Z
+# - 100 pins: V
+# - 64 pins:  R
+#
+# Memory codes:
+#
+# - 512Kb  Flash, 128Kb  SRAM: E
+# - 256Kb  Flash,  96Kb  SRAM: C
+#
+# Copyright (c) 2022 Teslabs Engineering S.L.
+# SPDX-License-Identifier: Apache 2.0
+
+model: afio
+
+series: gd32e507
+
+variants:
+  - pincode: Z
+    memories: [E, C]
+  - pincode: V
+    memories: [E, C]
+  - pincode: R
+    memories: [E, C]
+
+signal-configs:
+  ADC01_IN0:
+    modes: [analog]
+  ADC01_IN1:
+    modes: [analog]
+  ADC01_IN2:
+    modes: [analog]
+  ADC01_IN3:
+    modes: [analog]
+  ADC01_IN4:
+    modes: [analog]
+  ADC01_IN5:
+    modes: [analog]
+  ADC01_IN6:
+    modes: [analog]
+  ADC01_IN7:
+    modes: [analog]
+  ADC01_IN8:
+    modes: [analog]
+  ADC01_IN9:
+    modes: [analog]
+  ADC01_IN10:
+    modes: [analog]
+  ADC01_IN11:
+    modes: [analog]
+  ADC01_IN12:
+    modes: [analog]
+  ADC01_IN13:
+    modes: [analog]
+  ADC01_IN14:
+    modes: [analog]
+  ADC01_IN15:
+    modes: [analog]
+  CAN0_RX:
+    modes: [inp]
+  CAN0_TX:
+    modes: [out]
+  CAN1_RX:
+    modes: [inp]
+  CAN1_TX:
+    modes: [out]
+  CAN2_RX:
+    modes: [inp]
+  CAN2_TX:
+    modes: [out]
+  CK_OUT:
+    modes: [out]
+  CMP1_IM4:
+    modes: [inp]
+  CMP1_IM5:
+    modes: [inp]
+  CMP1_IM6:
+    modes: [inp]
+  CMP1_IP:
+    modes: [inp]
+  CMP1_OUT:
+    modes: [out]
+  CMP3_IM4:
+    modes: [inp]
+  CMP3_IM5:
+    modes: [inp]
+  CMP3_IM7:
+    modes: [inp]
+  CMP3_IP:
+    modes: [inp]
+  CMP3_OUT:
+    modes: [out]
+  CMP5_IM4:
+    modes: [inp]
+  CMP5_IM5:
+    modes: [inp]
+  CMP5_IM7:
+    modes: [inp]
+  CMP5_IP:
+    modes: [inp]
+  CMP5_OUT:
+    modes: [out]
+  CTC_SYNC:
+    modes: [out]
+  DAC_OUT0:
+    modes: [analog]
+  DAC_OUT1:
+    modes: [analog]
+  ETH_MII_COL:
+    modes: [inp]
+  ETH_MII_CRS:
+    modes: [inp]
+  ETH_MII_MDC:
+    modes: [out]
+  ETH_MII_MDIO:
+    modes: [out]
+  ETH_MII_PPS_OUT:
+    modes: [out]
+  ETH_MII_RX_CLK:
+    modes: [inp]
+  ETH_MII_RX_DV:
+    modes: [inp]
+  ETH_MII_RX_ER:
+    modes: [inp]
+  ETH_MII_RXD0:
+    modes: [inp]
+  ETH_MII_RXD1:
+    modes: [inp]
+  ETH_MII_RXD2:
+    modes: [inp]
+  ETH_MII_RXD3:
+    modes: [inp]
+  ETH_MII_TX_CLK:
+    modes: [inp]
+  ETH_MII_TX_EN:
+    modes: [out]
+  ETH_MII_TXD0:
+    modes: [out]
+  ETH_MII_TXD1:
+    modes: [out]
+  ETH_MII_TXD2:
+    modes: [out]
+  ETH_MII_TXD3:
+    modes: [out]
+  ETH_RMII_CRS_DV:
+    modes: [inp]
+  ETH_RMII_MDC:
+    modes: [out]
+  ETH_RMII_MDIO:
+    modes: [out]
+  ETH_RMII_PPS_OUT:
+    modes: [out]
+  ETH_RMII_REF_CLK:
+    modes: [inp]
+  ETH_RMII_RXD0:
+    modes: [inp]
+  ETH_RMII_RXD1:
+    modes: [inp]
+  ETH_RMII_TX_EN:
+    modes: [out]
+  ETH_RMII_TXD0:
+    modes: [out]
+  ETH_RMII_TXD1:
+    modes: [out]
+  EXMC_A0:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A1:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A2:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A3:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A4:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A5:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A6:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A7:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A8:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A9:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A10:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A11:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A12:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A13:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A14:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A15:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A16:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A17:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A18:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A19:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A20:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A21:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A22:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A23:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A24:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_A25:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_CD:
+    modes: [inp]
+  EXMC_CLK:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D0:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D1:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D2:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D3:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D4:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D5:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D6:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D7:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D8:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D9:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D10:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D11:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D12:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D13:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D14:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_D15:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_INT1:
+    modes: [inp]
+  EXMC_INT2:
+    modes: [inp]
+  EXMC_INTR:
+    modes: [inp]
+  EXMC_NADV:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NBL0:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NBL1:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NCE1:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NCE2:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NCE3_0:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NCE3_1:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NE0:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NE1:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NE2:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NE3:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NIORD:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NIOS16:
+    modes: [inp]
+  EXMC_NIOWR:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NOE:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NREG:
+    modes: [out]
+    exclude-pincodes: [R]
+  EXMC_NWAIT:
+    modes: [inp]
+  EXMC_NWE:
+    modes: [out]
+    exclude-pincodes: [R]
+  I2C0_SCL:
+    modes: [out]
+  I2C0_SDA:
+    modes: [out]
+  I2C0_SMBA:
+    modes: [out]
+  I2C0_TXFRAME:
+    modes: [out]
+  I2C1_SCL:
+    modes: [out]
+  I2C1_SDA:
+    modes: [out]
+  I2C1_SMBA:
+    modes: [out]
+  I2C1_TXFRAME:
+    modes: [out]
+  I2C2_SCL:
+    modes: [out]
+  I2C2_SDA:
+    modes: [out]
+  I2C2_SMBA:
+    modes: [out]
+  I2S1_ADD_SD:
+    modes: [inp, out]
+  I2S1_CK:
+    modes: [inp, out]
+  I2S1_MCK:
+    modes: [out]
+  I2S1_SD:
+    modes: [inp, out]
+  I2S1_WS:
+    modes: [inp, out]
+  I2S2_ADD_SD:
+    modes: [inp, out]
+  I2S2_CK:
+    modes: [inp, out]
+  I2S2_MCK:
+    modes: [out]
+  I2S2_SD:
+    modes: [inp, out]
+  I2S2_WS:
+    modes: [inp, out]
+  OSC32IN:
+    modes: [inp]
+  OSC32OUT:
+    modes: [out]
+  SHRTIMER_EXEV0:
+    modes: [inp]
+  SHRTIMER_EXEV1:
+    modes: [inp]
+  SHRTIMER_EXEV2:
+    modes: [inp]
+  SHRTIMER_EXEV3:
+    modes: [inp]
+  SHRTIMER_EXEV4:
+    modes: [inp]
+  SHRTIMER_EXEV5:
+    modes: [inp]
+  SHRTIMER_EXEV6:
+    modes: [inp]
+  SHRTIMER_EXEV7:
+    modes: [inp]
+  SHRTIMER_EXEV8:
+    modes: [inp]
+  SHRTIMER_FLT0:
+    modes: [inp]
+  SHRTIMER_FLT1:
+    modes: [inp]
+  SHRTIMER_FLT2:
+    modes: [inp]
+  SHRTIMER_FLT3:
+    modes: [inp]
+  SHRTIMER_FLT4:
+    modes: [inp]
+  SHRTIMER_SCIN:
+    modes: [inp]
+  SHRTIMER_SCOUT:
+    modes: [out]
+  SHRTIMER_ST0CH0:
+    modes: [out]
+  SHRTIMER_ST0CH1:
+    modes: [out]
+  SHRTIMER_ST1CH0:
+    modes: [out]
+  SHRTIMER_ST1CH1:
+    modes: [out]
+  SHRTIMER_ST2CH0:
+    modes: [out]
+  SHRTIMER_ST2CH1:
+    modes: [out]
+  SHRTIMER_ST3CH0:
+    modes: [out]
+  SHRTIMER_ST3CH1:
+    modes: [out]
+  SHRTIMER_ST4CH0:
+    modes: [out]
+  SHRTIMER_ST4CH1:
+    modes: [out]
+  SQPI_CLK:
+    modes: [out]
+  SQPI_CSN:
+    modes: [out]
+  SQPI_D0:
+    modes: [out]
+  SQPI_D1:
+    modes: [out]
+  SQPI_D2:
+    modes: [out]
+  SQPI_D3:
+    modes: [out]
+  SPI0_IO2:
+    modes: [out]
+  SPI0_IO3:
+    modes: [out]
+  SPI0_MISO:
+    modes: [inp, out]
+  SPI0_MOSI:
+    modes: [inp, out]
+  SPI0_NSS:
+    modes: [inp, out]
+  SPI0_SCK:
+    modes: [inp, out]
+  SPI1_MISO:
+    modes: [inp, out]
+  SPI1_MOSI:
+    modes: [inp, out]
+  SPI1_NSS:
+    modes: [inp, out]
+  SPI1_SCK:
+    modes: [inp, out]
+  SPI2_MISO:
+    modes: [inp, out]
+  SPI2_MOSI:
+    modes: [inp, out]
+  SPI2_NSS:
+    modes: [inp, out]
+  SPI2_SCK:
+    modes: [inp, out]
+  TAMPER_RTC:
+    modes: [inp]
+  TIMER0_BRKIN:
+    modes: [inp]
+  TIMER0_CH0:
+    modes: [inp, out]
+  TIMER0_CH0_ON:
+    modes: [out] 
+  TIMER0_CH1:
+    modes: [inp, out]
+  TIMER0_CH1_ON:
+    modes: [out] 
+  TIMER0_CH2:
+    modes: [inp, out]
+  TIMER0_CH2_ON:
+    modes: [out] 
+  TIMER0_CH3:
+    modes: [inp, out]
+  TIMER0_ETI:
+    modes: [inp]
+  TIMER1_CH0:
+    modes: [inp, out]
+  TIMER1_CH1:
+    modes: [inp, out]
+  TIMER1_CH2:
+    modes: [inp, out]
+  TIMER1_CH3:
+    modes: [inp, out]
+  TIMER1_ETI:
+    modes: [inp]
+  TIMER2_CH0:
+    modes: [inp, out]
+  TIMER2_CH1:
+    modes: [inp, out]
+  TIMER2_CH2:
+    modes: [inp, out]
+  TIMER2_CH3:
+    modes: [inp, out]
+  TIMER2_ETI:
+    modes: [inp]
+  TIMER3_CH0:
+    modes: [inp, out]
+  TIMER3_CH1:
+    modes: [inp, out]
+  TIMER3_CH2:
+    modes: [inp, out]
+  TIMER3_CH3:
+    modes: [inp, out]
+  TIMER3_ETI:
+    modes: [inp]
+  TIMER4_CH0:
+    modes: [inp, out]
+  TIMER4_CH1:
+    modes: [inp, out]
+  TIMER4_CH2:
+    modes: [inp, out]
+  TIMER4_CH3:
+    modes: [inp, out]
+  TIMER7_ETI:
+    modes: [inp]
+    exclude-memories: [C]
+  TIMER7_BRKIN:
+    modes: [inp]
+    exclude-memories: [C]
+  TIMER7_CH0:
+    modes: [inp, out]
+    exclude-memories: [C]
+  TIMER7_CH0_ON:
+    modes: [out]
+    exclude-memories: [C]
+  TIMER7_CH1:
+    modes: [inp, out]
+    exclude-memories: [C]
+  TIMER7_CH1_ON:
+    modes: [out]
+    exclude-memories: [C]
+  TIMER7_CH2:
+    modes: [inp, out]
+    exclude-memories: [C]
+  TIMER7_CH2_ON:
+    modes: [out]
+    exclude-memories: [C]
+  TIMER7_CH3:
+    modes: [inp, out]
+    exclude-memories: [C]
+  TIMER8_CH0:
+    modes: [inp, out]
+    exclude-memories: [C]
+  TIMER8_CH1:
+    modes: [inp, out]
+    exclude-memories: [C]
+  TIMER9_CH0:
+    modes: [inp, out]
+    exclude-memories: [C]
+  TIMER10_CH0:
+    modes: [inp, out]
+    exclude-memories: [C]
+  TIMER11_CH0:
+    modes: [inp, out]
+    exclude-memories: [C]
+  TIMER11_CH1:
+    modes: [inp, out]
+    exclude-memories: [C]
+  TIMER12_CH0:
+    modes: [inp, out]
+    exclude-memories: [C]
+  TIMER13_CH0:
+    modes: [inp, out]
+    exclude-memories: [C]
+  UART3_RX:
+    modes: [inp]
+  UART3_TX:
+    modes: [out]
+  UART4_RX:
+    modes: [inp]
+  UART4_TX:
+    modes: [out]
+  USART0_CK:
+    modes: [out]
+  USART0_CTS:
+    modes: [inp]
+  USART0_RTS:
+    modes: [out]
+  USART0_RX:
+    modes: [inp]
+  USART0_TX:
+    modes: [out]
+  USART1_CK:
+    modes: [out]
+  USART1_CTS:
+    modes: [inp]
+  USART1_RTS:
+    modes: [out]
+  USART1_RX:
+    modes: [inp]
+  USART1_TX:
+    modes: [out]
+  USART2_CK:
+    modes: [out]
+  USART2_CTS:
+    modes: [inp]
+  USART2_RTS:
+    modes: [out]
+  USART2_RX:
+    modes: [inp]
+  USART2_TX:
+    modes: [out]
+  USART5_CK:
+    modes: [out]
+  USART5_RX:
+    modes: [inp]
+  USART5_TX:
+    modes: [out]
+  USBHS_DM:
+    modes: [inp, out]
+  USBHS_DP:
+    modes: [inp, out]
+  USBHS_ID:
+    modes: [inp, out]
+  USBHS_SOF:
+    modes: [out]
+  USBHS_ULPI_CK:
+    modes: [inp]
+  USBHS_ULPI_D0:
+    modes: [inp, out]
+  USBHS_ULPI_D1:
+    modes: [inp, out]
+  USBHS_ULPI_D2:
+    modes: [inp, out]
+  USBHS_ULPI_D3:
+    modes: [inp, out]
+  USBHS_ULPI_D4:
+    modes: [inp, out]
+  USBHS_ULPI_D5:
+    modes: [inp, out]
+  USBHS_ULPI_D6:
+    modes: [inp, out]
+  USBHS_ULPI_D7:
+    modes: [inp, out]
+  USBHS_ULPI_DIR:
+    modes: [inp]
+  USBHS_ULPI_NXT:
+    modes: [inp]
+  USBHS_VBUS:
+    modes: [inp]
+  WKUP0:
+    modes: [inp]
+  WKUP1:
+    modes: [inp]
+  WKUP2:
+    modes: [inp]
+  WKUP3:
+    modes: [inp]
+  WKUP4:
+    modes: [inp]
+  WKUP5:
+    modes: [inp]
+  WKUP6:
+    modes: [inp]
+  WKUP7:
+    modes: [inp]
+
+pins:
+  PA0:
+    pincodes: [Z, V, R]
+    afs: [WKUP0, USART1_CTS, ADC01_IN0, TIMER1_CH0, TIMER1_ETI, TIMER4_CH0, TIMER7_ETI, ETH_MII_CRS]
+  PA1:
+    pincodes: [Z, V, R]
+    afs: [USART1_RTS, ADC01_IN1, TIMER4_CH1, TIMER1_CH1, ETH_MII_RX_CLK, ETH_RMII_REF_CLK]
+  PA2:
+    pincodes: [Z, V, R]
+    afs: [CMP1_OUT, USART1_TX, TIMER4_CH2, ADC01_IN2, TIMER8_CH0, TIMER1_CH2, ETH_MII_MDIO, ETH_RMII_MDIO, SPI0_IO2, WKUP3, CMP1_IM6]
+  PA3:
+    pincodes: [Z, V, R]
+    afs: [USBHS_ULPI_D0, USART1_RX, TIMER4_CH3, ADC01_IN3, TIMER1_CH3, TIMER8_CH1, ETH_MII_COL, SPI0_IO3]
+  PA4:
+    pincodes: [Z, V, R]
+    afs: [SPI0_NSS, USART1_CK, DAC_OUT0, ADC01_IN4, CMP1_IM4, CMP3_IM4, CMP5_IM4]
+  PA5:
+    pincodes: [Z, V, R]
+    afs: [USBHS_ULPI_CK, SPI0_SCK, ADC01_IN5, DAC_OUT1, CMP1_IM5, CMP3_IM5, CMP5_IM5]
+  PA6:
+    pincodes: [Z, V, R]
+    afs: [SPI0_MISO, TIMER7_BRKIN, ADC01_IN6, TIMER2_CH0, TIMER12_CH0]
+  PA7:
+    pincodes: [Z, V, R]
+    afs: [SPI0_MOSI, TIMER7_CH0_ON, ADC01_IN7, TIMER2_CH1, TIMER13_CH0, ETH_MII_RX_DV, ETH_RMII_CRS_DV, CMP1_IP]
+  PA8:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_ST0CH0, I2C2_SCL, USART0_CK, TIMER0_CH0, CK_OUT, USBHS_SOF, CTC_SYNC]
+  PA9:
+    pincodes: [Z, V, R]
+    afs: [CAN2_RX, SHRTIMER_ST0CH1, I2C2_SMBA, USART0_TX, TIMER0_CH1, USBHS_VBUS]
+  PA10:
+    pincodes: [Z, V, R]
+    afs: [CAN2_TX, CMP5_OUT, SHRTIMER_ST1CH0, USART0_RX, TIMER0_CH2, USBHS_ID]
+  PA11:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_ST1CH1, USART5_TX, USART0_CTS, CAN0_RX, TIMER0_CH3, USBHS_DM]
+  PA12:
+    pincodes: [Z, V, R]
+    afs: [CMP1_OUT, SHRTIMER_FLT0, USART5_RX, USART0_RTS, CAN0_TX, TIMER0_ETI, USBHS_DP]
+  PA13:
+    pincodes: [Z, V, R]
+    afs: []
+  PA14:
+    pincodes: [Z, V, R]
+    afs: []
+  PA15:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_FLT1, SPI2_NSS, I2S2_WS]
+  PB0:
+    pincodes: [Z, V, R]
+    afs: [USBHS_ULPI_D1, ADC01_IN8, TIMER2_CH2, TIMER7_CH1_ON, ETH_MII_RXD2, CMP3_IP]
+  PB1:
+    pincodes: [Z, V, R]
+    afs: [CMP3_OUT, USBHS_ULPI_D2, SHRTIMER_SCOUT, ADC01_IN9, TIMER2_CH3, TIMER7_CH2_ON, ETH_MII_RXD3]
+  PB2:
+    pincodes: [Z, V, R]
+    afs: [USBHS_ULPI_D4, SHRTIMER_SCIN, CMP3_IM7]
+  PB3:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_SCOUT, SHRTIMER_EXEV8, SPI2_SCK, I2S2_CK]
+  PB4:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_EXEV6, I2C2_SDA, I2S2_ADD_SD, SPI2_MISO, I2C0_TXFRAME]
+  PB5:
+    pincodes: [Z, V, R]
+    afs: [USBHS_ULPI_D7, SHRTIMER_EXEV5, I2C2_SCL, I2C0_SMBA, SPI2_MOSI, I2S2_SD, ETH_MII_PPS_OUT, ETH_RMII_PPS_OUT, WKUP5]
+  PB6:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_SCIN, SHRTIMER_EXEV3, I2C0_SCL, TIMER3_CH0]
+  PB7:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_EXEV2, I2C0_SDA , TIMER3_CH1, EXMC_NADV]
+  PB8:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_EXEV7, I2C2_SDA, TIMER3_CH2, TIMER9_CH0, ETH_MII_TXD3]
+  PB9:
+    pincodes: [Z, V, R]
+    afs: [CMP1_OUT, SHRTIMER_EXEV4, IMER3_CH3, TIMER10_CH0]
+  PB10:
+    pincodes: [Z, V, R]
+    afs: [CAN2_RX, USBHS_ULPI_D3, SHRTIMER_FLT2, I2C1_SCL, USART2_TX, ETH_MII_RX_ER]
+  PB11:
+    pincodes: [Z, V, R]
+    afs: [CAN2_TX, USBHS_ULPI_D4, SHRTIMER_FLT3, I2C1_SDA, USART2_RX, ETH_MII_TX_EN, ETH_RMII_TX_EN, CMP5_IP]
+  PB12:
+    pincodes: [Z, V, R]
+    afs: [USBHS_ULPI_D5, SHRTIMER_ST2CH0, SPI1_NSS, I2S1_WS, I2C1_SMBA, USART2_CK, TIMER0_BRKIN, CAN1_RX, ETH_MII_TXD0, ETH_RMII_TXD0]
+  PB13:
+    pincodes: [Z, V, R]
+    afs: [USBHS_ULPI_D6, SHRTIMER_ST2CH1, SPI1_SCK, I2S1_CK, USART2_CTS, TIMER0_CH0_ON, CAN1_TX, ETH_MII_TXD1, ETH_RMII_TXD1, I2C1_TXFRAME]
+  PB14:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_ST3CH0, I2S1_ADD_SD, SPI1_MISO, USART2_RTS, TIMER0_CH1_ON, TIMER11_CH0]
+  PB15:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_ST3CH1, SPI1_MOSI, TIMER0_CH2_ON, I2S1_SD, TIMER11_CH1, WKUP6, CMP5_IM7]
+  PC0:
+    pincodes: [Z, V, R]
+    afs: [USBHS_ULPI_STP, ADC01_IN10]
+  PC1:
+    pincodes: [Z, V, R]
+    afs: [ADC01_IN11, ETH_MII_MDC, ETH_RMII_MDC]
+  PC2:
+    pincodes: [Z, V, R]
+    afs: [USBHS_ULPI_DIR, I2S1_ADD_SD, ADC01_IN12, ETH_MII_TXD2]
+  PC3:
+    pincodes: [Z, V, R]
+    afs: [USBHS_ULPI_NXT, ADC01_IN13, ETH_MII_TX_CLK]
+  PC4:
+    pincodes: [Z, V, R]
+    afs: [ADC01_IN14, ETH_MII_RXD0, ETH_RMII_RXD0]
+  PC5:
+    pincodes: [Z, V, R]
+    afs: [ADC01_IN15, ETH_MII_RXD1, ETH_RMII_RXD1]
+  PC6:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_EXEV9, CMP5_OUT, USART5_TX, I2S1_MCK, TIMER7_CH0]
+  PC7:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_FLT4, USART5_RX, I2S2_MCK, TIMER7_CH1]
+  PC8:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_ST4CH0, USART5_CK, TIMER7_CH2]
+  PC9:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_ST4CH1, I2C2_SDA, TIMER7_CH3]
+  PC10:
+    pincodes: [Z, V, R]
+    afs: [I2C2_SCL, UART3_TX]
+  PC11:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_EXEV1, I2S2_ADD_SD, UART3_RX]
+  PC12:
+    pincodes: [Z, V, R]
+    afs: [SHRTIMER_EXEV0, UART4_TX]
+  PC13:
+    pincodes: [Z, V, R]
+    afs: [TAMPER_RTC, WKUP1]
+  PC14:
+    pincodes: [Z, V, R]
+    afs: [OSC32IN]
+  PC15:
+    pincodes: [Z, V, R]
+    afs: [OSC32OUT]
+  PD0:
+    pincodes: [Z, V]
+    afs: [EXMC_D2]
+  PD1:
+    pincodes: [Z, V]
+    afs: [EXMC_D3]
+  PD2:
+    pincodes: [Z, V, R]
+    afs: [TIMER2_ETI, UART4_RX]
+  PD3:
+    pincodes: [Z, V]
+    afs: [EXMC_CLK]
+  PD4:
+    pincodes: [Z, V]
+    afs: [SHRTIMER_FLT2, EXMC_NOE]
+  PD5:
+    pincodes: [Z, V]
+    afs: [SHRTIMER_EXEV2, EXMC_NWE]
+  PD6:
+    pincodes: [Z, V]
+    afs: [EXMC_NWAIT]
+  PD7:
+    pincodes: [Z, V]
+    afs: [EXMC_NE0, EXMC_NCE1]
+  PD8:
+    pincodes: [Z, V]
+    afs: [EXMC_D13]
+  PD9:
+    pincodes: [Z, V]
+    afs: [EXMC_D14]
+  PD10:
+    pincodes: [Z, V]
+    afs: [EXMC_D15]
+  PD11:
+    pincodes: [Z, V]
+    afs: [EXMC_A16]
+  PD12:
+    pincodes: [Z, V]
+    afs: [EXMC_A17]
+  PD13:
+    pincodes: [Z, V]
+    afs: [EXMC_A18]
+  PD14:
+    pincodes: [Z, V]
+    afs: [EXMC_D0]
+  PD15:
+    pincodes: [Z, V]
+    afs: [EXMC_D1]
+  PE0:
+    pincodes: [Z, V]
+    afs: [CAN2_RX, SHRTIMER_SCIN, TIMER3_ETI, EXMC_NBL0]
+  PE1:
+    pincodes: [Z, V]
+    afs: [CAN2_TX, SHRTIMER_SCOUT, EXMC_NBL1]
+  PE2:
+    pincodes: [Z, V]
+    afs: [EXMC_A23]
+  PE3:
+    pincodes: [Z, V]
+    afs: [EXMC_A19]
+  PE4:
+    pincodes: [Z, V]
+    afs: [EXMC_A20]
+  PE5:
+    pincodes: [Z, V]
+    afs: [EXMC_A21]
+  PE6:
+    pincodes: [Z, V]
+    afs: [EXMC_A22, WKUP2]
+  PE7:
+    pincodes: [Z, V]
+    afs: [EXMC_D4]
+  PE8:
+    pincodes: [Z, V]
+    afs: [CMP1_OUT, EXMC_D5]
+  PE9:
+    pincodes: [Z, V]
+    afs: [CMP3_OUT, EXMC_D6]
+  PE10:
+    pincodes: [Z, V]
+    afs: [CMP5_OUT, EXMC_D7]
+  PE11:
+    pincodes: [Z, V]
+    afs: [CMP5_OUT, EXMC_D8]
+  PE12:
+    pincodes: [Z, V]
+    afs: [CMP3_OUT, EXMC_D9]
+  PE13:
+    pincodes: [Z, V]
+    afs: [CMP1_OUT, EXMC_D10]
+  PE14:
+    pincodes: [Z, V]
+    afs: [EXMC_D11]
+  PE15:
+    pincodes: [Z, V]
+    afs: [EXMC_D12]
+  PF0:
+    pincodes: [Z]
+    afs: [EXMC_A0, SQPI_D0]
+  PF1:
+    pincodes: [Z]
+    afs: [EXMC_A1]
+  PF2:
+    pincodes: [Z]
+    afs: [EXMC_A2, SQPI_D2]
+  PF3:
+    pincodes: [Z]
+    afs: [EXMC_A3]
+  PF4:
+    pincodes: [Z]
+    afs: [EXMC_A4, SQPI_D1]
+  PF5:
+    pincodes: [Z]
+    afs: [EXMC_A5]
+  PF6:
+    pincodes: [Z]
+    afs: [EXMC_NIORD, SQPI_CSN]
+  PF7:
+    pincodes: [Z]
+    afs: [EXMC_NREG]
+  PF8:
+    pincodes: [Z]
+    afs: [EXMC_NIOWR, WKUP7, SQPI_CLK]
+  PF9:
+    pincodes: [Z]
+    afs: [EXMC_CD]
+  PF10:
+    pincodes: [Z]
+    afs: [EXMC_INTR, SQPI_D3]
+  PF11:
+    pincodes: [Z]
+    afs: [EXMC_NIOS16]
+  PF12:
+    pincodes: [Z]
+    afs: [EXMC_A6]
+  PF13:
+    pincodes: [Z]
+    afs: [EXMC_A7]
+  PF14:
+    pincodes: [Z]
+    afs: [EXMC_A8]
+  PF15:
+    pincodes: [Z]
+    afs: [EXMC_A9]
+  PG0:
+    pincodes: [Z]
+    afs: [EXMC_A10]
+  PG1:
+    pincodes: [Z]
+    afs: [EXMC_A11]
+  PG2:
+    pincodes: [Z]
+    afs: [EXMC_A12]
+  PG3:
+    pincodes: [Z]
+    afs: [EXMC_A13]
+  PG4:
+    pincodes: [Z]
+    afs: [EXMC_A14, SQPI_CSN]
+  PG5:
+    pincodes: [Z]
+    afs: [EXMC_A15]
+  PG6:
+    pincodes: [Z]
+    afs: [SHRTIMER_ST4CH0, EXMC_INT1, SQPI_D1]
+  PG7:
+    pincodes: [Z]
+    afs: [SHRTIMER_ST4CH1, USART5_CK, EXMC_INT2]
+  PG8:
+    pincodes: [Z]
+    afs: [SQPI_D2]
+  PG9:
+    pincodes: [Z]
+    afs: [USART5_RX, EXMC_NE1, EXMC_NCE2]
+  PG10:
+    pincodes: [Z]
+    afs: [SHRTIMER_FLT4, EXMC_NCE3_0, EXMC_NE2]
+  PG11:
+    pincodes: [Z]
+    afs: [SHRTIMER_EXEV3, EXMC_NCE3_1]
+  PG12:
+    pincodes: [Z]
+    afs: [SHRTIMER_EXEV4, EXMC_NE3]
+  PG13:
+    pincodes: [Z]
+    afs: [SHRTIMER_EXEV9, EXMC_A24]
+  PG14:
+    pincodes: [Z]
+    afs: [USART5_TX, EXMC_A25]
+  PG15:
+    pincodes: [Z]
+    afs: []
+
+remaps:
+  CAN0_RX:
+    pins: [PA11, null, PB8, PD0]
+  CAN0_TX:
+    pins: [PA12, null, PB9, PD1]
+  CAN1_RX:
+    pins: [PB12, PB5]
+  CAN1_TX:
+    pins: [PB13, PB6]
+  CTC_SYNC:
+    pins: [PA8, PD15, null, PF0]
+  ETH_MII_RX_DV:
+    pins: [PA7, PD8]
+  ETH_MII_RXD0:
+    pins: [PC4, PD9]
+  ETH_MII_RXD1:
+    pins: [PC5, PD10]
+  ETH_MII_RXD2:
+    pins: [PB0, PD11]
+  ETH_MII_RXD3:
+    pins: [PB1, PD12]
+  ETH_RMII_CRS_DV:
+    pins: [PA7, PD8]
+  ETH_RMII_RXD0:
+    pins: [PC4, PD9]
+  ETH_RMII_RXD1:
+    pins: [PC5, PD10]
+  I2C0_SCL:
+    pins: [PB6, PB8]
+  I2C0_SDA:
+    pins: [PB7, PB9]
+  I2S2_SD:
+    pins: [PB5, PC12]
+  I2S2_WS:
+    pins: [PA15, PA4]
+  I2S2_CK:
+    pins: [PB3, PC10]
+  SPI0_IO2:
+    pins: [PA2, PB6]
+  SPI0_IO3:
+    pins: [PA3, PB7]
+  SPI0_MISO:
+    pins: [PA6, PB4]
+  SPI0_MOSI:
+    pins: [PA7, PB5]
+  SPI0_NSS:
+    pins: [PA4, PA15]
+  SPI0_SCK:
+    pins: [PA5, PB3]
+  SPI2_MISO:
+    pins: [PB4, PC11]
+  SPI2_MOSI:
+    pins: [PB5, PC12]
+  SPI2_NSS:
+    pins: [PA15, PA4]
+  SPI2_SCK:
+    pins: [PB3, PC10]
+  TIMER0_BKIN:
+    pins: [PB12, PA6, null, PE15]
+  TIMER0_CH0:
+    pins: [PA8, PA8, null, PE9]
+  TIMER0_CH1:
+    pins: [PA9, PA9, null, PE11]
+  TIMER0_CH2:
+    pins: [PA10, PA10, null, PE13]
+  TIMER0_CH3:
+    pins: [PA11, PA11, null, PE14]
+  TIMER0_CH0_ON:
+    pins: [PB13, PA7, null, PE8]
+  TIMER0_CH1_ON:
+    pins: [PB14, PB0, null, PE10]
+  TIMER0_CH2_ON:
+    pins: [PB15, PB1, null, PE12]
+  TIMER0_ETI:
+    pins: [PA12, PA12, null, PE7]
+  TIMER1_CH0:
+    pins: [PA0, PA15, PA0, PA15]
+  TIMER1_CH1:
+    pins: [PA1, PB3, PA1, PB3]
+  TIMER1_CH2:
+    pins: [PA2, PA2, PB10, PB10]
+  TIMER1_CH3:
+    pins: [PA3, PA3, PB11, PB11]
+  TIMER1_ETI:
+    pins: [PA0, PA15, PA0, PA15]
+  TIMER2_CH0:
+    pins: [PA6, null, PB4, PC6]
+  TIMER2_CH1:
+    pins: [PA7, null, PB5, PC7]
+  TIMER2_CH2:
+    pins: [PB0, null, PB0, PC8]
+  TIMER2_CH3:
+    pins: [PB1, null, PB1, PC9]
+  TIMER3_CH0:
+    pins: [PB6, PD12]
+  TIMER3_CH1:
+    pins: [PB7, PD13]
+  TIMER3_CH2:
+    pins: [PB8, PD14]
+  TIMER3_CH3:
+    pins: [PB9, PD15]
+  TIMER8_CH0:
+    pins: [PA2, PE5]
+  TIMER8_CH1:
+    pins: [PA3, PE6]
+  TIMER9_CH0:
+    pins: [PB8, PF6]
+  TIMER10_CH0:
+    pins: [PB9, PF7]
+  TIMER12_CH0:
+    pins: [PA6, PF8]
+  TIMER13_CH0:
+    pins: [PA7, PF9]
+  USART0_RX:
+    pins: [PA10, PB7]
+  USART0_TX:
+    pins: [PA9, PB6]
+  USART1_CK:
+    pins: [PA4, PD7]
+  USART1_CTS:
+    pins: [PA0, PD3]
+  USART1_RTS:
+    pins: [PA1, PD4]
+  USART1_RX:
+    pins: [PA3, PD6]
+  USART1_TX:
+    pins: [PA2, PD5]
+  USART2_CK:
+    pins: [PB12, PC12, null, PD10]
+  USART2_CTS:
+    pins: [PB13, PB13, null, PD11]
+  USART2_RTS:
+    pins: [PB14, PB14, null, PD12]
+  USART2_RX:
+    pins: [PB11, PC11, null, PD9]
+  USART2_TX:
+    pins: [PB10, PC10, null, PD8]
