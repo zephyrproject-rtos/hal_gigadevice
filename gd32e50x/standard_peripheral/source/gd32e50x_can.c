@@ -174,7 +174,7 @@ void can_struct_para_init(can_struct_type_enum type, void* p_struct)
             ((can_parameter_struct*)p_struct)->time_segment_2 = CAN_BT_BS2_1TQ;
             ((can_parameter_struct*)p_struct)->time_triggered = DISABLE;
             ((can_parameter_struct*)p_struct)->trans_fifo_order = DISABLE;
-            ((can_parameter_struct*)p_struct)->working_mode = CAN_NORMAL_MODE;
+            ((can_parameter_struct*)p_struct)->working_mode = GD32_CAN_NORMAL_MODE;
 
             break;
         /* used for can_filter_init() */
@@ -280,7 +280,7 @@ void can_struct_para_init(can_struct_type_enum type, void* p_struct)
     \param[in]  can_periph
       \arg        CANx(x=0,1,2),the CAN2 only for GD32E50X_CL and GD32E508
     \param[in]  can_parameter_init: parameters for CAN initializtion
-      \arg        working_mode: CAN_NORMAL_MODE, CAN_LOOPBACK_MODE, CAN_SILENT_MODE, CAN_SILENT_LOOPBACK_MODE
+      \arg        working_mode: GD32_CAN_NORMAL_MODE, GD32_CAN_LOOPBACK_MODE, GD32_CAN_SILENT_MODE, GD32_CAN_SILENT_LOOPBACK_MODE
       \arg        resync_jump_width: 0x00 - 0x07
       \arg        time_segment_1: 0x00 - 0x7F
       \arg        time_segment_2: 0x00 - 0x1F
@@ -576,10 +576,10 @@ void can_filter_mask_mode_init(uint32_t can_periph, uint32_t id, uint32_t mask, 
       \arg        CANx(x=0,1,2),the CAN2 only for GD32E50X_CL and GD32E508
     \param[in]  mode: communication mode
                 only one parameter can be selected which is shown as below:
-      \arg        CAN_NORMAL_MODE
-      \arg        CAN_LOOPBACK_MODE
-      \arg        CAN_SILENT_MODE
-      \arg        CAN_SILENT_LOOPBACK_MODE
+      \arg        GD32_CAN_NORMAL_MODE
+      \arg        GD32_CAN_LOOPBACK_MODE
+      \arg        GD32_CAN_SILENT_MODE
+      \arg        GD32_CAN_SILENT_LOOPBACK_MODE
     \param[out] none
     \retval     ErrStatus: SUCCESS or ERROR
 */
@@ -588,7 +588,7 @@ ErrStatus can_monitor_mode_set(uint32_t can_periph, uint8_t mode)
     ErrStatus reval = SUCCESS;
     uint32_t timeout = CAN_TIMEOUT;
 
-    if(mode == (mode & CAN_SILENT_LOOPBACK_MODE)){
+    if(mode == (mode & GD32_CAN_SILENT_LOOPBACK_MODE)){
         /* disable sleep mode */
         CAN_CTL(can_periph) &= (~(uint32_t)CAN_CTL_SLPWMOD);
         /* set initialize mode */

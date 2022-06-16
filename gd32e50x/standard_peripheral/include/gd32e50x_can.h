@@ -721,10 +721,10 @@ typedef enum
 #define CAN_STATE_PENDING                  ((uint32_t)0x00000000U)      /*!< CAN pending */
 
 /* CAN communication mode */
-#define CAN_NORMAL_MODE                    ((uint8_t)0x00U)             /*!< normal communication mode */
-#define CAN_LOOPBACK_MODE                  ((uint8_t)0x01U)             /*!< loopback communication mode */
-#define CAN_SILENT_MODE                    ((uint8_t)0x02U)             /*!< silent communication mode */
-#define CAN_SILENT_LOOPBACK_MODE           ((uint8_t)0x03U)             /*!< loopback and silent communication mode */
+#define GD32_CAN_NORMAL_MODE               ((uint8_t)0x00U)             /*!< normal communication mode */
+#define GD32_CAN_LOOPBACK_MODE             ((uint8_t)0x01U)             /*!< loopback communication mode */
+#define GD32_CAN_SILENT_MODE               ((uint8_t)0x02U)             /*!< silent communication mode */
+#define GD32_CAN_SILENT_LOOPBACK_MODE      ((uint8_t)0x03U)             /*!< loopback and silent communication mode */
 
 /* CAN resynchronisation jump width */
 #define CAN_BT_SJW_1TQ                     ((uint8_t)0x00U)             /*!< 1 time quanta */
