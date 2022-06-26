@@ -94,6 +94,8 @@ The conflicts at gd32 standard peripheral API are listed by the afected file(s).
 In general, a name is the conflict itself and that whould be reworked following
 the gd32 standard peripheral API rules.
 
+You can also check the refact tool at [scripts/lib_refactor](scripts/lib_refactor/)
+
  - `<firmware_library>_timer.h/c`: `timer_init()` should be prefixed with
    `gd32_` and become `gd32_timer_init()`.
  - `<firmware_library>_can.h/c`: all `CAN_` macros that collide with any
