@@ -5,7 +5,5 @@
  */
 
 #if defined(CONFIG_SOC_SERIES_GD32E50X)
-#include <gd32e50x_cmp.h>
-#elif defined(CONFIG_SOC_SERIES_GD32F3X0)
-#include <gd32f3x0_cmp.h>
+#include <gd32e50x_tmu.h>
 #endif
