@@ -736,7 +736,7 @@ ErrStatus can_frequency_set(uint32_t can_periph, uint32_t hz)
     uint32_t fdctl_status;
     /* The maximum baud rate support to 1M  */
     if(hz <= 1000000U) {
-        if(SUCCESS == can_working_mode_set(can_periph, CAN_MODE_INITIALIZE)){
+        if(SUCCESS == can_working_mode_set(can_periph, GD32_CAN_MODE_INITIALIZE)){
             reg_temp = CAN_BT(can_periph);
             reg_temp &= (CAN_BT_LCMOD | CAN_BT_SCMOD);
             fdctl_status = CAN_FDCTL(can_periph);
@@ -755,7 +755,7 @@ ErrStatus can_frequency_set(uint32_t can_periph, uint32_t hz)
             reval = ERROR;
         }
 
-        if(SUCCESS != can_working_mode_set(can_periph, CAN_MODE_NORMAL)){
+        if(SUCCESS != can_working_mode_set(can_periph, GD32_CAN_MODE_NORMAL)){
             reval = ERROR;
         }
     }else{
@@ -777,13 +777,13 @@ ErrStatus can_fd_frequency_set(uint32_t can_periph, uint32_t hz)
 {
     ErrStatus reval = SUCCESS;
 
-    if(SUCCESS == can_working_mode_set(can_periph, CAN_MODE_INITIALIZE)){
+    if(SUCCESS == can_working_mode_set(can_periph, GD32_CAN_MODE_INITIALIZE)){
         CAN_DBT(can_periph) = dev_can_fd_baudrate_set(hz);
     }else {
         reval = ERROR;
     }
 
-    if(SUCCESS != can_working_mode_set(can_periph, CAN_MODE_NORMAL)){
+    if(SUCCESS != can_working_mode_set(can_periph, GD32_CAN_MODE_NORMAL)){
         reval = ERROR;
     }
 
@@ -829,7 +829,7 @@ ErrStatus can_frequency_set(uint32_t can_periph, uint32_t hz)
 
     /* The maximum baud rate support to 1M  */
     if(hz <= 1000000U) {
-        if(SUCCESS == can_working_mode_set(can_periph, CAN_MODE_INITIALIZE)){
+        if(SUCCESS == can_working_mode_set(can_periph, GD32_CAN_MODE_INITIALIZE)){
             reg_temp = CAN_BT(can_periph);
             reg_temp &= (CAN_BT_LCMOD | CAN_BT_SCMOD);
 
@@ -838,7 +838,7 @@ ErrStatus can_frequency_set(uint32_t can_periph, uint32_t hz)
             reval = ERROR;
         }
 
-        if(SUCCESS != can_working_mode_set(can_periph, CAN_MODE_NORMAL)){
+        if(SUCCESS != can_working_mode_set(can_periph, GD32_CAN_MODE_NORMAL)){
             reval = ERROR;
         }
     }else{
@@ -1376,9 +1376,9 @@ uint8_t can_receive_message_length_get(uint32_t can_periph, uint8_t fifo_number)
       \arg        CANx(x=0,1,2),the CAN2 only for GD32E50X_CL and GD32E508
     \param[in]  can_working_mode
                 only one parameter can be selected which is shown as below:
-      \arg        CAN_MODE_INITIALIZE
-      \arg        CAN_MODE_NORMAL
-      \arg        CAN_MODE_SLEEP
+      \arg        GD32_CAN_MODE_INITIALIZE
+      \arg        GD32_CAN_MODE_NORMAL
+      \arg        GD32_CAN_MODE_SLEEP
     \param[out] none
     \retval     ErrStatus: SUCCESS or ERROR
 */
@@ -1388,7 +1388,7 @@ ErrStatus can_working_mode_set(uint32_t can_periph, uint8_t working_mode)
     /* timeout for IWS or also for SLPWS bits */
     uint32_t timeout = CAN_TIMEOUT;
 
-    if(CAN_MODE_INITIALIZE == working_mode){
+    if(GD32_CAN_MODE_INITIALIZE == working_mode){
         /* disable sleep mode */
         CAN_CTL(can_periph) &= (~(uint32_t)CAN_CTL_SLPWMOD);
         /* set initialize mode */
@@ -1402,7 +1402,7 @@ ErrStatus can_working_mode_set(uint32_t can_periph, uint8_t working_mode)
         }else{
             flag = SUCCESS;
         }
-    }else if(CAN_MODE_NORMAL == working_mode){
+    }else if(GD32_CAN_MODE_NORMAL == working_mode){
         /* enter normal mode */
         CAN_CTL(can_periph) &= ~(uint32_t)(CAN_CTL_SLPWMOD | CAN_CTL_IWMOD);
         /* wait the acknowledge */
@@ -1414,7 +1414,7 @@ ErrStatus can_working_mode_set(uint32_t can_periph, uint8_t working_mode)
         }else{
             flag = SUCCESS;
         }
-    }else if(CAN_MODE_SLEEP == working_mode){
+    }else if(GD32_CAN_MODE_SLEEP == working_mode){
         /* disable initialize mode */
         CAN_CTL(can_periph) &= (~(uint32_t)CAN_CTL_IWMOD);
         /* set sleep mode */
