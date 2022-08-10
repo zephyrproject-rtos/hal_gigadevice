@@ -781,9 +781,9 @@ typedef enum
 #define CAN_EFID_MASK                      ((uint32_t)0x1FFFFFFFU)      /*!< mask of extended identifier */
 
 /* CAN working mode */
-#define CAN_MODE_INITIALIZE                ((uint8_t)0x01U)             /*!< CAN initialize mode */
-#define CAN_MODE_NORMAL                    ((uint8_t)0x02U)             /*!< CAN normal mode */
-#define CAN_MODE_SLEEP                     ((uint8_t)0x04U)             /*!< CAN sleep mode */
+#define GD32_CAN_MODE_INITIALIZE           ((uint8_t)0x01U)             /*!< CAN initialize mode */
+#define GD32_CAN_MODE_NORMAL               ((uint8_t)0x02U)             /*!< CAN normal mode */
+#define GD32_CAN_MODE_SLEEP                ((uint8_t)0x04U)             /*!< CAN sleep mode */
 
 /* filter bits */
 #define CAN_FILTERBITS_16BIT               ((uint8_t)0x00U)             /*!< CAN filter 16 bits */

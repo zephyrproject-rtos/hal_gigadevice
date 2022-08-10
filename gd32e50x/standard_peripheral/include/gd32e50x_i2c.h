@@ -561,6 +561,12 @@ typedef enum
 #define BUSTOA_DETECT_SCL_LOW            ((uint32_t)0x00000000U)               /*!< BUSTOA is used to detect SCL low timeout */
 #define BUSTOA_DETECT_IDLE               I2C2_TIMEOUT_TOIDLE                   /*!< BUSTOA is used to detect both SCL and SDA high timeout when the bus is idle */
 
+/* I2C clock frequency, MHz */
+#define I2CCLK_MAX                    ((uint32_t)0x0000007FU)                  /*!< i2cclk maximum value */
+#define I2CCLK_MIN                    ((uint32_t)0x00000002U)                  /*!< i2cclk minimum value */
+#define I2CCLK_FM_MIN                 ((uint32_t)0x00000008U)                  /*!< i2cclk minimum value for fast mode */
+#define I2CCLK_FM_PLUS_MIN            ((uint32_t)0x00000018U)                  /*!< i2cclk minimum value for fast mode plus */
+
 /* function declarations */
 /* functions of I2C0~2 */
 /* reset I2C */
