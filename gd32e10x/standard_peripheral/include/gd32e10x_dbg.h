@@ -5,10 +5,11 @@
     \version 2017-12-26, V1.0.0, firmware for GD32E10x
     \version 2020-09-30, V1.1.0, firmware for GD32E10x
     \version 2020-12-31, V1.2.0, firmware for GD32E10x
+    \version 2022-06-30, V1.3.0, firmware for GD32E10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -55,7 +56,6 @@ OF SUCH DAMAGE.
 #define DBG_CTL_DSLP_HOLD        BIT(1)                     /*!< keep debugger connection during deepsleep mode */
 #define DBG_CTL_STB_HOLD         BIT(2)                     /*!< keep debugger connection during standby mode */
 #define DBG_CTL_TRACE_IOEN       BIT(5)                     /*!< enable trace pin assignment */
-#define DBG_CTL_TRACE_MODE       BITS(6,7)                  /*!< trace pin mode selection */
 #define DBG_CTL_FWDGT_HOLD       BIT(8)                     /*!< debug FWDGT kept when core is halted */
 #define DBG_CTL_WWDGT_HOLD       BIT(9)                     /*!< debug WWDGT kept when core is halted */
 #define DBG_CTL_TIMER0_HOLD      BIT(10)                    /*!< hold TIMER0 counter when core is halted */
@@ -103,13 +103,6 @@ typedef enum
     DBG_TIMER10_HOLD           = BIT(30),                   /*!< hold TIMER10 counter when core is halted */
 }dbg_periph_enum;
 
-/* DBG_CTL0_TRACE_MODE configurations */
-#define CTL_TRACE_MODE(regval)       (BITS(6,7) & ((uint32_t)(regval) << 6U))
-#define TRACE_MODE_ASYNC              CTL_TRACE_MODE(0)     /*!< trace pin used for async mode */
-#define TRACE_MODE_SYNC_DATASIZE_1    CTL_TRACE_MODE(1)     /*!< trace pin used for sync mode and data size is 1 */
-#define TRACE_MODE_SYNC_DATASIZE_2    CTL_TRACE_MODE(2)     /*!< trace pin used for sync mode and data size is 2 */
-#define TRACE_MODE_SYNC_DATASIZE_4    CTL_TRACE_MODE(3)     /*!< trace pin used for sync mode and data size is 4 */
-
 /* function declarations */
 /* read DBG_ID code register */
 uint32_t dbg_id_get(void);
@@ -128,7 +121,5 @@ void dbg_periph_disable(dbg_periph_enum dbg_periph);
 void dbg_trace_pin_enable(void);
 /* disable trace pin assignment */
 void dbg_trace_pin_disable(void);
-/* set trace pin mode */
-void dbg_trace_pin_mode_set(uint32_t trace_mode);
 
 #endif /* GD32E10X_DBG_H */

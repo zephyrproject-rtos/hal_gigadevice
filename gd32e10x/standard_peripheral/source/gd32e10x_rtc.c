@@ -5,10 +5,11 @@
     \version 2017-12-26, V1.0.0, firmware for GD32E10x
     \version 2020-09-30, V1.1.0, firmware for GD32E10x
     \version 2020-12-31, V1.2.0, firmware for GD32E10x
+    \version 2022-06-30, V1.3.0, firmware for GD32E10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -149,10 +150,18 @@ void rtc_alarm_config(uint32_t alarm)
 */
 uint32_t rtc_counter_get(void)
 {
-    uint32_t temp = 0x0U;
-    
+    uint32_t temp = 0x0U, high_old, high_new;
+
+    high_old = RTC_CNTH;
     temp = RTC_CNTL;
-    temp |= (RTC_CNTH << RTC_HIGH_BITS_OFFSET);
+    high_new = RTC_CNTH;
+
+    if(high_old != high_new){
+        temp = (high_new << RTC_HIGH_BITS_OFFSET) | RTC_CNTL;
+    }else{
+        temp |= (high_new << RTC_HIGH_BITS_OFFSET);
+    }
+
     return temp;
 }
 
@@ -246,7 +255,7 @@ void rtc_interrupt_flag_clear(uint32_t flag)
 
 /*!
     \brief      enable RTC interrupt
-    \param[in]  interrupt: specify which interrupt to enbale
+    \param[in]  interrupt: specify which interrupt to enable
                 one or more parameters can be selected which are shown as below:
       \arg        RTC_INT_SECOND: second interrupt
       \arg        RTC_INT_ALARM: alarm interrupt
@@ -261,7 +270,7 @@ void rtc_interrupt_enable(uint32_t interrupt)
 
 /*!
     \brief      disable RTC interrupt
-    \param[in]  interrupt: specify which interrupt to disbale
+    \param[in]  interrupt: specify which interrupt to disable
                 one or more parameters can be selected which are shown as below:
       \arg        RTC_INT_SECOND: second interrupt
       \arg        RTC_INT_ALARM: alarm interrupt

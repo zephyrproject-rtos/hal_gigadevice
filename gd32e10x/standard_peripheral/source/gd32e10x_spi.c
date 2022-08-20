@@ -6,10 +6,12 @@
     \version 2020-09-30, V1.1.0, firmware for GD32E10x
     \version 2020-12-31, V1.2.0, firmware for GD32E10x
     \version 2021-05-31, V1.2.1, firmware for GD32E10x
+    \version 2022-06-16, V1.2.2, firmware for GD32E10x
+    \version 2022-06-30, V1.3.0, firmware for GD32E10x
 */
 
 /*
-    Copyright (c) 2021, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -96,6 +98,7 @@ void spi_struct_para_init(spi_parameter_struct* spi_struct)
     spi_struct->trans_mode = SPI_TRANSMODE_FULLDUPLEX;
     spi_struct->frame_size = SPI_FRAMESIZE_8BIT;
     spi_struct->nss = SPI_NSS_HARD;
+    spi_struct->endian = SPI_ENDIAN_MSB;
     spi_struct->clock_polarity_phase = SPI_CK_PL_LOW_PH_1EDGE;
     spi_struct->prescale = SPI_PSC_2;
 }
@@ -604,67 +607,67 @@ void spi_nssp_mode_disable(uint32_t spi_periph)
 }
 
 /*!
-    \brief      enable quad wire SPI
+    \brief      enable SPI quad wire mode 
     \param[in]  spi_periph: SPIx(only x=0)
     \param[out] none
     \retval     none
 */
-void qspi_enable(uint32_t spi_periph)
+void spi_quad_enable(uint32_t spi_periph)
 {
     SPI_QCTL(spi_periph) |= (uint32_t)SPI_QCTL_QMOD;
 }
 
 /*!
-    \brief      disable quad wire SPI 
+    \brief      disable SPI quad wire mode 
     \param[in]  spi_periph: SPIx(only x=0)
     \param[out] none
     \retval     none
 */
-void qspi_disable(uint32_t spi_periph)
+void spi_quad_disable(uint32_t spi_periph)
 {
     SPI_QCTL(spi_periph) &= (uint32_t)(~SPI_QCTL_QMOD);
 }
 
 /*!
-    \brief      enable quad wire SPI write 
+    \brief      enable SPI quad wire mode write 
     \param[in]  spi_periph: SPIx(only x=0)
     \param[out] none
     \retval     none
 */
-void qspi_write_enable(uint32_t spi_periph)
+void spi_quad_write_enable(uint32_t spi_periph)
 {
     SPI_QCTL(spi_periph) &= (uint32_t)(~SPI_QCTL_QRD);
 }
 
 /*!
-    \brief      enable quad wire SPI read 
+    \brief      enable SPI quad wire mode read 
     \param[in]  spi_periph: SPIx(only x=0)
     \param[out] none
     \retval     none
 */
-void qspi_read_enable(uint32_t spi_periph)
+void spi_quad_read_enable(uint32_t spi_periph)
 {
     SPI_QCTL(spi_periph) |= (uint32_t)SPI_QCTL_QRD;
 }
 
 /*!
-    \brief      enable SPI_IO2 and SPI_IO3 pin output 
+    \brief      enable SPI quad wire mode SPI_IO2 and SPI_IO3 pin output
     \param[in]  spi_periph: SPIx(only x=0)
     \param[out] none
     \retval     none
 */
-void qspi_io23_output_enable(uint32_t spi_periph)
+void spi_quad_io23_output_enable(uint32_t spi_periph)
 {
     SPI_QCTL(spi_periph) |= (uint32_t)SPI_QCTL_IO23_DRV;
 }
 
  /*!
-    \brief      disable SPI_IO2 and SPI_IO3 pin output 
+    \brief      disable SPI quad wire mode SPI_IO2 and SPI_IO3 pin output
     \param[in]  spi_periph: SPIx(only x=0)
     \param[out] none
     \retval     none
 */
-void qspi_io23_output_disable(uint32_t spi_periph)
+void spi_quad_io23_output_disable(uint32_t spi_periph)
 {
     SPI_QCTL(spi_periph) &= (uint32_t)(~SPI_QCTL_IO23_DRV);
 }

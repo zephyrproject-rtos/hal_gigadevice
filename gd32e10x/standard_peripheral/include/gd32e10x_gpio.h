@@ -5,10 +5,11 @@
     \version 2017-12-26, V1.0.0, firmware for GD32E10x
     \version 2020-09-30, V1.1.0, firmware for GD32E10x
     \version 2020-12-31, V1.2.0, firmware for GD32E10x
+    \version 2022-06-30, V1.3.0, firmware for GD32E10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -250,13 +251,11 @@ OF SUCH DAMAGE.
 #define AFIO_PCF0_TIMER3_REMAP           BIT(12)             /*!< TIMER3 remapping */
 #define AFIO_PCF0_PD01_REMAP             BIT(15)             /*!< port D0/port D1 mapping on OSC_IN/OSC_OUT */
 #define AFIO_PCF0_TIMER4CH3_IREMAP       BIT(16)             /*!< TIMER4 channel3 internal remapping */
-#define AFIO_PCF0_ADC0_ETRGINS_REMAP     BIT(17)             /*!< ADC 0 external trigger inserted conversion remapping */
-#define AFIO_PCF0_ADC0_ETRGREG_REMAP     BIT(18)             /*!< ADC 0 external trigger regular conversion remapping */
-#define AFIO_PCF0_ADC1_ETRGINS_REMAP     BIT(19)             /*!< ADC 1 external trigger inserted conversion remapping */
-#define AFIO_PCF0_ADC1_ETRGREG_REMAP     BIT(20)             /*!< ADC 1 external trigger regular conversion remapping */
+#define AFIO_PCF0_ADC0_ETRGRT_REMAP     BIT(18)             /*!< ADC 0 external trigger routine conversion remapping */
+#define AFIO_PCF0_ADC1_ETRGRT_REMAP     BIT(20)             /*!< ADC 1 external trigger routine conversion remapping */
 #define AFIO_PCF0_SWJ_CFG                BITS(24,26)         /*!< serial wire JTAG configuration */
 #define AFIO_PCF0_SPI2_REMAP             BIT(28)             /*!< SPI2/I2S2 remapping */
-#define AFIO_PCF0_TIMER1ITR0_REMAP       BIT(29)             /*!< TIMER1 internal trigger 0 remapping */
+#define AFIO_PCF0_TIMER1ITI1_REMAP       BIT(29)             /*!< TIMER1 internal trigger 1 remapping */
 
 /* AFIO_EXTISS0 */
 #define AFIO_EXTI0_SS                    BITS(0,3)           /*!< EXTI 0 sources selection */
@@ -408,15 +407,13 @@ typedef FlagStatus bit_status;
 #define GPIO_TIMER3_REMAP                AFIO_PCF0_TIMER3_REMAP                                           /*!< TIMER3 remapping */
 #define GPIO_PD01_REMAP                  AFIO_PCF0_PD01_REMAP                                             /*!< PD01 remapping */
 #define GPIO_TIMER4CH3_IREMAP            ((uint32_t)0x00200000U | (AFIO_PCF0_TIMER4CH3_IREMAP >> 16))      /*!< TIMER4 channel3 internal remapping */
-#define GPIO_ADC0_ETRGINS_REMAP          ((uint32_t)0x00200000U | (AFIO_PCF0_ADC0_ETRGINS_REMAP >> 16))    /*!< ADC 0 external trigger inserted conversion remapping */
-#define GPIO_ADC0_ETRGREG_REMAP          ((uint32_t)0x00200000U | (AFIO_PCF0_ADC0_ETRGREG_REMAP >> 16))    /*!< ADC 0 external trigger regular conversion remapping */
-#define GPIO_ADC1_ETRGINS_REMAP          ((uint32_t)0x00200000U | (AFIO_PCF0_ADC1_ETRGINS_REMAP >> 16))    /*!< ADC 1 external trigger inserted conversion remapping */
-#define GPIO_ADC1_ETRGREG_REMAP          ((uint32_t)0x00200000U | (AFIO_PCF0_ADC1_ETRGREG_REMAP >> 16))    /*!< ADC 1 external trigger regular conversion remapping */
+#define GPIO_ADC0_ETRGRT_REMAP          ((uint32_t)0x00200000U | (AFIO_PCF0_ADC0_ETRGRT_REMAP >> 16))    /*!< ADC 0 external trigger routine conversion remapping */
+#define GPIO_ADC1_ETRGRT_REMAP          ((uint32_t)0x00200000U | (AFIO_PCF0_ADC1_ETRGRT_REMAP >> 16))    /*!< ADC 1 external trigger routine conversion remapping */
 #define GPIO_SWJ_NONJTRST_REMAP          ((uint32_t)0x00300000U | (PCF0_SWJ_CFG(1) >> 16))                 /*!< full SWJ(JTAG-DP + SW-DP),but without NJTRST */
 #define GPIO_SWJ_SWDPENABLE_REMAP        ((uint32_t)0x00300000U | (PCF0_SWJ_CFG(2) >> 16))                 /*!< JTAG-DP disabled and SW-DP enabled */
 #define GPIO_SWJ_DISABLE_REMAP           ((uint32_t)0x00300000U | (PCF0_SWJ_CFG(4) >> 16))                 /*!< JTAG-DP disabled and SW-DP disabled */
 #define GPIO_SPI2_REMAP                  ((uint32_t)0x00200000U | (AFIO_PCF0_SPI2_REMAP >> 16))            /*!< SPI2 remapping */
-#define GPIO_TIMER1ITR0_REMAP            ((uint32_t)0x00200000U | (AFIO_PCF0_TIMER1ITR0_REMAP >> 16))      /*!< TIMER1 internal trigger 0 remapping */
+#define GPIO_TIMER1ITI1_REMAP            ((uint32_t)0x00200000U | (AFIO_PCF0_TIMER1ITI1_REMAP >> 16))      /*!< TIMER1 internal trigger 1 remapping */
 #define GPIO_TIMER8_REMAP                ((uint32_t)0x80000000U | AFIO_PCF1_TIMER8_REMAP)                  /*!< TIMER8 remapping */
 #define GPIO_EXMC_NADV_REMAP             ((uint32_t)0x80000000U | AFIO_PCF1_EXMC_NADV)                     /*!< EXMC_NADV connect/disconnect */
 #define GPIO_CTC_REMAP0                  ((uint32_t)0x801B0000U | PCF1_CTC_REMAP(1))                       /*!< CTC remapping(PD15)*/
