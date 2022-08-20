@@ -309,6 +309,11 @@ typedef enum {
 #define I2C_ADDFORMAT_7BITS           ((uint32_t)0x00000000U)                  /*!< address format is 7 bits */
 #define I2C_ADDFORMAT_10BITS          I2C_SADDR0_ADDFORMAT                     /*!< address format is 10 bits */
 
+#define I2CCLK_MAX ((uint32_t)0x0000003FU)/*!< i2cclk maximum value */
+#define I2CCLK_MIN ((uint32_t)0x00000002U)/*!< i2cclk minimum value for standard mode */
+#define I2CCLK_FM_MIN ((uint32_t)0x00000008U)/*!< i2cclk minimum value for fast mode */
+#define I2CCLK_FM_PLUS_MIN ((uint32_t)0x00000018U)/*!< i2cclk minimum value for fast mode plus */                     /*!< address format is 10 bits */
+
 /* function declarations */
 /* reset I2C */
 void i2c_deinit(uint32_t i2c_periph);
