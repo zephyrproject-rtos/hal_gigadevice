@@ -4,10 +4,12 @@
     
     \version 2017-12-26, V1.0.1, firmware for GD32E10x
     \version 2020-09-30, V1.1.0, firmware for GD32E10x
+    \version 2020-12-31, V1.2.0, firmware for GD32E10x
+    \version 2022-06-30, V1.3.0, firmware for GD32E10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -60,14 +62,6 @@ OF SUCH DAMAGE.
   #error "Please select the target board type used in your application (in gd32e10x.h file)"
   #endif
 #endif /* high speed crystal oscillator value */
-
-#if HXTAL_VALUE == 8000000
-  #define HXTAL_VALUE_8M  HXTAL_VALUE
-#elif HXTAL_VALUE == 25000000
-  #define HXTAL_VALUE_25M  HXTAL_VALUE
-#else
-  #error "GD32E10X lib only support 8M and 25M oscillator (HXTAL)"
-#endif
  
 /* define startup timeout value of high speed crystal oscillator (HXTAL) */
 #if !defined  (HXTAL_STARTUP_TIMEOUT)
@@ -201,9 +195,7 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrStatus;
 #define REG32(addr)                  (*(volatile uint32_t *)(uint32_t)(addr))
 #define REG16(addr)                  (*(volatile uint16_t *)(uint32_t)(addr))
 #define REG8(addr)                   (*(volatile uint8_t *)(uint32_t)(addr))
-#ifndef BIT
 #define BIT(x)                       ((uint32_t)((uint32_t)0x01U<<(x)))
-#endif
 #define BITS(start, end)             ((0xFFFFFFFFUL << (start)) & (0xFFFFFFFFUL >> (31U - (uint32_t)(end)))) 
 #define GET_BITS(regval, start, end) (((regval) & BITS((start),(end))) >> (start))
 
