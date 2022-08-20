@@ -5,10 +5,11 @@
     \version 2017-12-26, V1.0.0, firmware for GD32E10x
     \version 2020-09-30, V1.1.0, firmware for GD32E10x
     \version 2020-12-31, V1.2.0, firmware for GD32E10x
+    \version 2022-06-30, V1.3.0, firmware for GD32E10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -179,7 +180,7 @@ typedef enum
 #define RTC_CLOCK_DIV_1               ((uint16_t)BKP_OCTL_CCOSEL)     /*!< RTC clock div 1 */
 
 /* RTC clock calibration direction */
-#define RTC_CLOCK_SLOWED_DOWN         ((uint16_t)0x0000U)             /*!< RTC clock slow down */
+#define RTC_CLOCK_SLOW_DOWN           ((uint16_t)0x0000U)             /*!< RTC clock slow down */
 #define RTC_CLOCK_SPEED_UP            ((uint16_t)BKP_OCTL_CALDIR)     /*!< RTC clock speed up */
 
 /* tamper pin active level */

@@ -6,10 +6,11 @@
     \version 2020-05-11, V1.0.1, firmware for GD32E10x
     \version 2020-09-30, V1.1.0, firmware for GD32E10x
     \version 2020-12-31, V1.2.0, firmware for GD32E10x
+    \version 2022-06-30, V1.3.0, firmware for GD32E10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -288,13 +289,20 @@ fmc_state_enum fmc_mass_erase(void)
 */
 fmc_state_enum fmc_doubleword_program(uint32_t address, uint64_t data)
 {
+    uint32_t data0, data1;
+
     fmc_state_enum fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);
+
+    data0 = (uint32_t)(data & 0xFFFFFFFFU);
+    data1 = (uint32_t)((data >> 32U) & 0xFFFFFFFFU);
 
     if(FMC_READY == fmc_state){
         /* set the PGW and PG bit to start program */
         FMC_WS |= FMC_WS_PGW;
         FMC_CTL |= FMC_CTL_PG;
-        *(__IO uint64_t*)(address) = data;
+
+        REG32(address) = data0;
+        REG32(address + 4U) = data1;
 
         /* wait for the FMC ready */
         fmc_state = fmc_ready_wait(FMC_TIMEOUT_COUNT);

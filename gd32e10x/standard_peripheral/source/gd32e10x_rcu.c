@@ -6,10 +6,11 @@
     \version 2020-09-30, V1.1.0, firmware for GD32E10x
     \version 2020-12-31, V1.2.0, firmware for GD32E10x
     \version 2021-05-31, V1.2.1, firmware for GD32E10x
+    \version 2022-06-30, V1.3.0, firmware for GD32E10x
 */
 
 /*
-    Copyright (c) 2021, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -58,7 +59,6 @@ OF SUCH DAMAGE.
 /* RCU PREDV1 division factor offset*/
 #define RCU_CFG1_PREDV1_OFFSET      ((uint32_t)4U)
 
-
 /*!
     \brief      deinitialize the RCU
     \param[in]  none
@@ -71,11 +71,15 @@ void rcu_deinit(void)
     RCU_CTL |= RCU_CTL_IRC8MEN;
     rcu_osci_stab_wait(RCU_IRC8M);
 
+    RCU_CFG0 &= ~RCU_CFG0_SCS;
+
+    /* reset HXTALEN, CKMEN, PLLEN bits */
+    RCU_CTL &= ~(RCU_CTL_HXTALEN | RCU_CTL_CKMEN | RCU_CTL_PLLEN);
+
     /* reset CFG0 register */
     RCU_CFG0 &= ~(RCU_CFG0_SCS | RCU_CFG0_AHBPSC | RCU_CFG0_APB1PSC | RCU_CFG0_APB2PSC |
                   RCU_CFG0_ADCPSC | RCU_CFG0_CKOUT0SEL | RCU_CFG0_ADCPSC_2);
-    /* reset HXTALEN, CKMEN, PLLEN bits */
-    RCU_CTL &= ~(RCU_CTL_HXTALEN | RCU_CTL_CKMEN | RCU_CTL_PLLEN);
+
     /* reset HXTALBPS bit */
     RCU_CTL &= ~RCU_CTL_HXTALBPS;
     /* reset PLLSEL, PREDV0_LSB, PLLMF, USBFSPSC bits */
