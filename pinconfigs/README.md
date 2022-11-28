@@ -120,6 +120,9 @@ The AFIO model supports the following fields in the configuration file:
 
   Available configuration fields are:
 
+  - `exclude-pincodes`: A list of pincodes where the signal is not
+    available. If not defined, it is assumed that signal is available on all
+    pin codes.
   - `exclude-memories`: A lit of memories where the signal is not available. If
     not available, it is assumed that signal is available on all memories.
 

@@ -240,8 +240,12 @@ def build_af_pin_cfgs(variant, signal_configs, pins):
         pin_cfgs["ANALOG"].append((port, pin_number, "ANALOG"))
 
         for signal, mode in pin_cfg["afs"].items():
-            # check if signal is excluded from current list of memories
             signal_config = signal_configs.get(signal)
+            # check if signal is excluded from current pincode
+            if signal_config and pincode in \
+                signal_config.get("exclude-pincodes", []):
+                continue
+            # check if signal is excluded from current list of memories
             if signal_config and set(memories).intersection(
                 signal_config.get("exclude-memories", [])
             ):
