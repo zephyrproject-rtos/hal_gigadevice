@@ -183,3 +183,7 @@ Below table show the invalid signal, pins mapping.
 | SPI0_SCK   | PB13      |
 | SPI0_MISO  | PB14      |
 | SPI0_MOSI  | PB15      |
+
+#### GD32L233
+
+GD32L233Kx-QFN32 and GD32L233Kx-LQFP32 have same pincode 'K'. To avoid pincode conflict, change GD32L233Kx-QFN32 pincode to 'Q'.
