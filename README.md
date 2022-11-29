@@ -115,3 +115,13 @@ conflict resolution. See below list with the proposed solution:
   two step work. First move I2CCLK_MAX and I2CCLK_MIN marco from i2c source
   file to header file. Then split the I2CCLK_MIN for each supported transfer
   mode.
+
+- gd32l23x
+
+  - `SystemInit` function in `system_gd32l23x.c` contain an invalid usage of
+    `nvic_vector_table_set` function, just remove it.
+
+  - `gd32l23x_libopt.h` file not exist, add it manually.
+
+  - i2c have different implement than current gd32 i2c driver. no need to patch
+    upper i2c speed requirement.
