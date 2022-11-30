@@ -14,6 +14,8 @@
 #include <gd32f403_spi.h>
 #elif defined(CONFIG_SOC_SERIES_GD32F4XX)
 #include <gd32f4xx_spi.h>
+#elif defined(CONFIG_SOC_SERIES_GD32L23X)
+#include <gd32l23x_spi.h>
 #elif defined(CONFIG_SOC_SERIES_GD32VF103)
 #include <gd32vf103_spi.h>
 #endif
