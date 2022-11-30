@@ -18,6 +18,11 @@ signal-configs:
     exclude-memories: [2, 3]
   PERIPH2_SIGB:
     exclude-memories: [2, 3]
+  PERIPH3_SIGA:
+    exclude-pincodes: [X]
+  PERIPH4_SIGA:
+    exclude-pincodes: [Y]
+    exclude-memories: [2, 3]
 
 pins:
   PA0:
@@ -34,8 +39,12 @@ pins:
     afs:
       PERIPH2_SIGA: 8
       PERIPH0_SIGA: 10
+      PERIPH3_SIGA: 13
+      PERIPH4_SIGA: 14
   PA3:
     pincodes: [X, Y]
     afs:
       PERIPH1_SIGB: 6
       PERIPH2_SIGA: 8
+      PERIPH3_SIGA: 12
+      PERIPH4_SIGA: 15
