@@ -14,6 +14,8 @@
 #include <gd32f403_exti.h>
 #elif defined(CONFIG_SOC_SERIES_GD32F4XX)
 #include <gd32f4xx_exti.h>
+#elif defined(CONFIG_SOC_SERIES_GD32L23X)
+#include <gd32l23x_exti.h>
 #elif defined(CONFIG_SOC_SERIES_GD32VF103)
 #include <gd32vf103_exti.h>
 #endif
