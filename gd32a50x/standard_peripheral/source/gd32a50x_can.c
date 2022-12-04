@@ -359,12 +359,12 @@ void can_private_filter_config(uint32_t can_periph, uint32_t index, uint32_t fil
     \param[in]  can_periph: CANx(x=0,1)
     \param[in]  mode: the mode to enter
                 only one parameter can be selected which is shown as below:
-      \arg        CAN_NORMAL_MODE: normal mode
-      \arg        CAN_MONITOR_MODE: monitor mode
-      \arg        CAN_LOOPBACK_SILENT_MODE: loopback mode
-      \arg        CAN_INACTIVE_MODE: inactive mode
-      \arg        CAN_DISABLE_MODE: disable mode
-      \arg        CAN_PN_MODE: Pretended Networking mode
+      \arg        GD32_CAN_NORMAL_MODE: normal mode
+      \arg        GD32_CAN_MONITOR_MODE: monitor mode
+      \arg        GD32_CAN_LOOPBACK_SILENT_MODE: loopback mode
+      \arg        GD32_CAN_INACTIVE_MODE: inactive mode
+      \arg        GD32_CAN_DISABLE_MODE: disable mode
+      \arg        GD32_CAN_PN_MODE: Pretended Networking mode
     \param[out] none
     \retval     ERROR or SUCCESS
 */
@@ -391,25 +391,25 @@ ErrStatus can_operation_mode_enter(uint32_t can_periph, can_operation_modes_enum
 
     /* configure the modes */
     switch(mode) {
-    case CAN_NORMAL_MODE:
+    case GD32_CAN_NORMAL_MODE:
         CAN_CTL1(can_periph) &= ~(CAN_CTL1_LSCMOD | CAN_CTL1_MMOD);
         break;
-    case CAN_MONITOR_MODE:
+    case GD32_CAN_MONITOR_MODE:
         CAN_CTL1(can_periph) &= ~CAN_CTL1_LSCMOD;
         CAN_CTL1(can_periph) |= CAN_CTL1_MMOD;
         break;
-    case CAN_LOOPBACK_SILENT_MODE:
+    case GD32_CAN_LOOPBACK_SILENT_MODE:
         CAN_CTL1(can_periph) &= ~CAN_CTL1_MMOD;
         CAN_CTL0(can_periph) &= ~CAN_CTL0_SRDIS;
         CAN_FDCTL(can_periph) &= ~CAN_FDCTL_TDCEN;
         CAN_CTL1(can_periph) |= CAN_CTL1_LSCMOD;
         break;
-    case CAN_INACTIVE_MODE:
+    case GD32_CAN_INACTIVE_MODE:
         break;
-    case CAN_DISABLE_MODE:
+    case GD32_CAN_DISABLE_MODE:
         CAN_CTL0(can_periph) |= CAN_CTL0_CANDIS;
         break;
-    case CAN_PN_MODE:
+    case GD32_CAN_PN_MODE:
         CAN_CTL0(can_periph) |= (CAN_CTL0_PNEN | CAN_CTL0_PNMOD);
         break;
     default:
@@ -417,7 +417,7 @@ ErrStatus can_operation_mode_enter(uint32_t can_periph, can_operation_modes_enum
     }
 
     /* exit INACTIVE mode */
-    if(CAN_INACTIVE_MODE != mode) {
+    if(GD32_CAN_INACTIVE_MODE != mode) {
         /* exit inactive mode */
         CAN_CTL0(can_periph) &= ~(CAN_CTL0_HALT | CAN_CTL0_INAMOD);
         timeout = CAN_DELAY;
@@ -429,7 +429,7 @@ ErrStatus can_operation_mode_enter(uint32_t can_periph, can_operation_modes_enum
         }
     }
 
-    if(CAN_PN_MODE == mode) {
+    if(GD32_CAN_PN_MODE == mode) {
         timeout = CAN_DELAY;
         while((0U == (CAN_CTL0(can_periph) & CAN_CTL0_PNS)) && (timeout)) {
             timeout--;
@@ -450,25 +450,25 @@ ErrStatus can_operation_mode_enter(uint32_t can_periph, can_operation_modes_enum
 can_operation_modes_enum can_operation_mode_get(uint32_t can_periph)
 {
     uint32_t reg;
-    can_operation_modes_enum state = CAN_NORMAL_MODE;
+    can_operation_modes_enum state = GD32_CAN_NORMAL_MODE;
 
     reg = CAN_CTL0(can_periph);
     reg &= (CAN_CTL0_NRDY | CAN_CTL0_INAS | CAN_CTL0_PNS | CAN_CTL0_LPS);
 
     if((CAN_CTL0_NRDY | CAN_CTL0_LPS) == reg) {
-        state = CAN_DISABLE_MODE;
+        state = GD32_CAN_DISABLE_MODE;
     } else if((CAN_CTL0_NRDY | CAN_CTL0_INAS) == reg) {
-        state = CAN_INACTIVE_MODE;
+        state = GD32_CAN_INACTIVE_MODE;
     } else if(0U == reg) {
         if(CAN_CTL1(can_periph)&CAN_CTL1_MMOD) {
-            state = CAN_MONITOR_MODE;
+            state = GD32_CAN_MONITOR_MODE;
         } else if(CAN_CTL1(can_periph)&CAN_CTL1_LSCMOD) {
-            state = CAN_LOOPBACK_SILENT_MODE;
+            state = GD32_CAN_LOOPBACK_SILENT_MODE;
         } else {
-            state = CAN_NORMAL_MODE;
+            state = GD32_CAN_NORMAL_MODE;
         }
     } else if(CAN_CTL0_PNS == reg) {
-        state = CAN_PN_MODE;
+        state = GD32_CAN_PN_MODE;
     } else {
         /* should not get here */
     }

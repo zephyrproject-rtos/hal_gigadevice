@@ -724,12 +724,12 @@ typedef enum {
 
 /* operation modes */
 typedef enum {
-    CAN_NORMAL_MODE               = 0U,                                                  /*!< normal mode */
-    CAN_MONITOR_MODE              = 1U,                                                  /*!< monitor mode */
-    CAN_LOOPBACK_SILENT_MODE      = 2U,                                                  /*!< loopback mode */
-    CAN_INACTIVE_MODE             = 3U,                                                  /*!< inactive mode */
-    CAN_DISABLE_MODE              = 4U,                                                  /*!< disable mode */
-    CAN_PN_MODE                   = 5U                                                   /*!< Pretended Networking mode */
+    GD32_CAN_NORMAL_MODE               = 0U,                                                  /*!< normal mode */
+    GD32_CAN_MONITOR_MODE              = 1U,                                                  /*!< monitor mode */
+    GD32_CAN_LOOPBACK_SILENT_MODE      = 2U,                                                  /*!< loopback mode */
+    GD32_CAN_INACTIVE_MODE             = 3U,                                                  /*!< inactive mode */
+    GD32_CAN_DISABLE_MODE              = 4U,                                                  /*!< disable mode */
+    GD32_CAN_PN_MODE                   = 5U                                                   /*!< Pretended Networking mode */
 } can_operation_modes_enum;
 
 /* initiliaze parameter type */

@@ -269,6 +269,11 @@ typedef enum {
 #define I2C_FLAG_I2CBSY                 I2C_STAT_I2CBSY                 /*!< busy flag */
 #define I2C_FLAG_TR                     I2C_STAT_TR                     /*!< whether the I2C is a transmitter or a receiver in slave mode */
 
+#define I2CCLK_MAX ((uint32_t)0x0000003FU)/*!< i2cclk maximum value */
+#define I2CCLK_MIN ((uint32_t)0x00000002U)/*!< i2cclk minimum value for standard mode */
+#define I2CCLK_FM_MIN ((uint32_t)0x00000008U)/*!< i2cclk minimum value for fast mode */
+#define I2CCLK_FM_PLUS_MIN ((uint32_t)0x00000018U)/*!< i2cclk minimum value for fast mode plus */
+
 /* function declarations */
 /* initialization functions */
 /* reset I2C */
