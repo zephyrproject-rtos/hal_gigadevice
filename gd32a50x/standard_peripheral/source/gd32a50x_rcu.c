@@ -938,7 +938,7 @@ uint32_t rcu_clock_freq_get(rcu_clock_freq_enum clock)
         /* PLL multiplication factor */
         pllmf = GET_BITS(RCU_CFG0, 18, 21);
         pllmf += ((RCU_CFG0 & RCU_CFG0_PLLMF_4) ? 15U : 0U);
-        pllmf += ((0xFU == (RCU_CFG0 & RCU_CFG0_PLLMF)) ? 1U : 2U);
+        pllmf += ((RCU_CFG0_PLLMF == (RCU_CFG0 & RCU_CFG0_PLLMF)) ? 1U : 2U);
         cksys_freq = ck_src * pllmf;
         break;
     /* IRC8M is selected as CK_SYS */
