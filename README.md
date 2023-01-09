@@ -22,9 +22,11 @@ Each ARM firmware library is organized in the following structure:
     ├── cmsis
     │   └── gd
     │       └── gd32xxx
-    └── standard_peripheral
-        ├── include
-        └── source
+    ├── standard_peripheral
+    │   ├── include
+    │   └── source
+    └── support (optional)
+        └── GigaDevice.GD32xxx_DFP.1.0.0.pack (Only for packs not in [Keil MDK5 Software Packs](https://www.keil.com/dd2/pack/))
 ```
 
 ### RISC-V
@@ -125,3 +127,19 @@ conflict resolution. See below list with the proposed solution:
 
   - i2c have different implement than current gd32 i2c driver. no need to patch
     upper i2c speed requirement.
+
+- gd32a50x
+
+  - `SystemCoreClockUpdate` function contain an `pllmf` calculate error.  
+    Fix by change `0xFU` to `RCU_CFG0_PLLMF`:
+    ``` diff
+      /* PLL multiplication factor */
+      pllmf = GET_BITS(RCU_CFG0, 18, 21);
+      pllmf += ((RCU_CFG0 & RCU_CFG0_PLLMF_4) ? 15U : 0U);
+    - pllmf += ((0xFU == (RCU_CFG0 & RCU_CFG0_PLLMF)) ? 1U : 2U);
+    + pllmf += ((RCU_CFG0_PLLMF == (RCU_CFG0 & RCU_CFG0_PLLMF)) ? 1U : 2U);
+    ```
+  - For debug this board, `pyocd` need a pack file from Gigadevice,
+    But Gigadevice don't upload pack file to [keil packs repo](https://www.keil.com/dd2/pack/).
+    Fix: Storage pack as `gd32a50x/support/GigaDevice.GD32A50x_DFP.1.0.0.pack`
+    (Download from https://gd32mcu.com/cn/download/7?kw=GD32A5 -> GD32A50x AddOn)
