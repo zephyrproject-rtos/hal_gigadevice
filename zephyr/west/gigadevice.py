@@ -11,9 +11,52 @@ from textwrap import dedent            # just for nicer code indentation
 from west.commands import WestCommand  # your extension must subclass this
 from west import log                   # use this for user output
 
+from pathlib import Path
+import yaml
+import os
+
+REPO_ROOT = Path(__file__).absolute().parents[2]
+"""Repository root (used for input/output default folders)."""
+
+
+class Install:
+    def __init__(self, config=REPO_ROOT / 'zephyr' / 'west' / 'gigadevice.yml'):
+        self.config = self.parse_config(config)
+        self.pyocd_install()
+
+    def parse_config(self, config):
+        with open(config, 'r') as f:
+            return yaml.safe_load(f)
+
+    def pyocd_install(self):
+        for pyocd_packages in self.config['pyocd-packages']:
+            self.pyocd_install_one(pyocd_packages)
+
+    def pyocd_install_one(self, package):
+        print(package)
+        if 'url' in package:
+            self.pyocd_install_one_from_url(package)
+        else:
+            self.pyocd_install_one_from_mdk(package)
+
+    def pyocd_install_one_from_mdk(self, package):
+        # run shell command: pyocd pack install package['pack']
+        os.system('echo pyocd pack install ' + package['pack'])
+        pass
+
+    def pyocd_install_one_from_url(self, package):
+        file_name = '%s.rar' % package['pack']
+        # Download from url to tmp folder
+        log.inf('download', package['url'], 'to', file_name)
+        # unrar file to tmp folder
+        os.system(f'echo unrar x ${file_name}')
+        # find pack file in tmp folder
+        # check pack file hash value
+        # storage pack file to support folder
+        pass
+
 
 class Gigadevice(WestCommand):
-
     def __init__(self):
         super().__init__(
             'gigadevice',  # gets stored as self.name
@@ -45,8 +88,6 @@ class Gigadevice(WestCommand):
         #   required is BAR
         match args.command:
             case 'install':
-                log.inf('command is', args.command)
-                log.inf('we can install some pack for pyocd')
-                log.inf('TODO: RUN: pyocd pack install gd32e103')
+                Install()
             case _:
-                log.inf('command is', args.command)
+                log.inf('command is', args.command, REPO_ROOT)
