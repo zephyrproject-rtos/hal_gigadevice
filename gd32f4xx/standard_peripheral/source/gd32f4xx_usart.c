@@ -399,9 +399,9 @@ void usart_receiver_timeout_threshold_config(uint32_t usart_periph, uint32_t rti
     \param[out] none
     \retval     none
 */
-void usart_data_transmit(uint32_t usart_periph, uint32_t data)
+void usart_data_transmit(uint32_t usart_periph, uint16_t data)
 {
-    USART_DATA(usart_periph) = ((uint16_t)USART_DATA_DATA & data);
+    USART_DATA(usart_periph) = USART_DATA_DATA & (uint32_t)data;
 }
 
 /*!
@@ -425,7 +425,7 @@ uint16_t usart_data_receive(uint32_t usart_periph)
 void usart_address_config(uint32_t usart_periph, uint8_t addr)
 {
     USART_CTL1(usart_periph) &= ~(USART_CTL1_ADDR);
-    USART_CTL1(usart_periph) |= (USART_CTL1_ADDR & addr);
+    USART_CTL1(usart_periph) |= (USART_CTL1_ADDR & (uint32_t)addr);
 }
 
 /*!
@@ -579,15 +579,8 @@ void usart_synchronous_clock_disable(uint32_t usart_periph)
 */
 void usart_synchronous_clock_config(uint32_t usart_periph, uint32_t clen, uint32_t cph, uint32_t cpl)
 {
-    uint32_t ctl = 0U;
-
-    /* read USART_CTL1 register */
-    ctl = USART_CTL1(usart_periph);
-    ctl &= ~(USART_CTL1_CLEN | USART_CTL1_CPH | USART_CTL1_CPL);
-    /* set CK length, CK phase, CK polarity */
-    ctl |= (USART_CTL1_CLEN & clen) | (USART_CTL1_CPH & cph) | (USART_CTL1_CPL & cpl);
-
-    USART_CTL1(usart_periph) = ctl;
+    USART_CTL1(usart_periph) &= ~(USART_CTL1_CLEN | USART_CTL1_CPH | USART_CTL1_CPL);
+    USART_CTL1(usart_periph) = (USART_CTL1_CLEN & clen) | (USART_CTL1_CPH & cph) | (USART_CTL1_CPL & cpl);
 }
 
 /*!
@@ -597,10 +590,10 @@ void usart_synchronous_clock_config(uint32_t usart_periph, uint32_t clen, uint32
     \param[out] none
     \retval     none
 */
-void usart_guard_time_config(uint32_t usart_periph, uint32_t guat)
+void usart_guard_time_config(uint32_t usart_periph, uint8_t guat)
 {
     USART_GP(usart_periph) &= ~(USART_GP_GUAT);
-    USART_GP(usart_periph) |= (USART_GP_GUAT & ((guat) << GP_GUAT_OFFSET));
+    USART_GP(usart_periph) |= (USART_GP_GUAT & ((uint32_t)guat << GP_GUAT_OFFSET));
 }
 
 /*!
@@ -654,10 +647,10 @@ void usart_smartcard_mode_nack_disable(uint32_t usart_periph)
     \param[out] none
     \retval     none
 */
-void usart_smartcard_autoretry_config(uint32_t usart_periph, uint32_t scrtnum)
+void usart_smartcard_autoretry_config(uint32_t usart_periph, uint8_t scrtnum)
 {
     USART_CTL3(usart_periph) &= ~(USART_CTL3_SCRTNUM);
-    USART_CTL3(usart_periph) |= (USART_CTL3_SCRTNUM & ((scrtnum) << CTL3_SCRTNUM_OFFSET));
+    USART_CTL3(usart_periph) |= (USART_CTL3_SCRTNUM & ((uint32_t)scrtnum << CTL3_SCRTNUM_OFFSET));
 }
 
 /*!
@@ -667,10 +660,10 @@ void usart_smartcard_autoretry_config(uint32_t usart_periph, uint32_t scrtnum)
     \param[out] none
     \retval     none
 */
-void usart_block_length_config(uint32_t usart_periph, uint32_t bl)
+void usart_block_length_config(uint32_t usart_periph, uint8_t bl)
 {
     USART_RT(usart_periph) &= ~(USART_RT_BL);
-    USART_RT(usart_periph) |= (USART_RT_BL & ((bl) << RT_BL_OFFSET));
+    USART_RT(usart_periph) |= (USART_RT_BL & ((uint32_t)bl << RT_BL_OFFSET));
 }
 
 /*!
@@ -705,7 +698,7 @@ void usart_irda_mode_disable(uint32_t usart_periph)
 void usart_prescaler_config(uint32_t usart_periph, uint8_t psc)
 {
     USART_GP(usart_periph) &= ~(USART_GP_PSC);
-    USART_GP(usart_periph) |= psc;
+    USART_GP(usart_periph) |= (uint32_t)psc;
 }
 
 /*!
@@ -736,15 +729,9 @@ void usart_irda_lowpower_config(uint32_t usart_periph, uint32_t irlp)
 */
 void usart_hardware_flow_rts_config(uint32_t usart_periph, uint32_t rtsconfig)
 {
-    uint32_t ctl = 0U;
-
-    ctl = USART_CTL2(usart_periph);
-    ctl &= ~USART_CTL2_RTSEN;
-    ctl |= rtsconfig;
-    /* configure RTS */
-    USART_CTL2(usart_periph) = ctl;
+    USART_CTL2(usart_periph) &= ~(USART_CTL2_RTSEN);
+    USART_CTL2(usart_periph) |= (USART_CTL2_RTSEN & rtsconfig);
 }
-
 /*!
     \brief    configure hardware flow control CTS
     \param[in]  usart_periph: USARTx(x=0,1,2,5)
@@ -757,13 +744,8 @@ void usart_hardware_flow_rts_config(uint32_t usart_periph, uint32_t rtsconfig)
 */
 void usart_hardware_flow_cts_config(uint32_t usart_periph, uint32_t ctsconfig)
 {
-    uint32_t ctl = 0U;
-
-    ctl = USART_CTL2(usart_periph);
-    ctl &= ~USART_CTL2_CTSEN;
-    ctl |= ctsconfig;
-    /* configure CTS */
-    USART_CTL2(usart_periph) = ctl;
+    USART_CTL2(usart_periph) &= ~(USART_CTL2_CTSEN);
+    USART_CTL2(usart_periph) |= (USART_CTL2_CTSEN & ctsconfig);
 }
 
 /*!
@@ -819,20 +801,15 @@ void usart_hardware_flow_coherence_config(uint32_t usart_periph, uint32_t hcm)
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
     \param[in]  dmacmd: enable or disable DMA for reception
                 only one parameter can be selected which is shown as below:
-      \arg        USART_DENR_ENABLE:  DMA enable for reception
-      \arg        USART_DENR_DISABLE: DMA disable for reception
+      \arg        USART_RECEIVE_DMA_ENABLE: DMA enable for reception
+      \arg        USART_RECEIVE_DMA_DISABLE: DMA disable for reception
     \param[out] none
     \retval     none
 */
 void usart_dma_receive_config(uint32_t usart_periph, uint32_t dmacmd)
 {
-    uint32_t ctl = 0U;
-
-    ctl = USART_CTL2(usart_periph);
-    ctl &= ~USART_CTL2_DENR;
-    ctl |= dmacmd;
-    /* configure DMA reception */
-    USART_CTL2(usart_periph) = ctl;
+    USART_CTL2(usart_periph) &= ~(USART_CTL2_DENR);
+    USART_CTL2(usart_periph) |= (USART_CTL2_DENR & dmacmd);
 }
 
 /*!
@@ -840,20 +817,15 @@ void usart_dma_receive_config(uint32_t usart_periph, uint32_t dmacmd)
     \param[in]  usart_periph: USARTx(x=0,1,2,5)/UARTx(x=3,4,6,7)
     \param[in]  dmacmd: enable or disable DMA for transmission
                 only one parameter can be selected which is shown as below:
-      \arg        USART_DENT_ENABLE:  DMA enable for transmission
-      \arg        USART_DENT_DISABLE: DMA disable for transmission
+      \arg        USART_TRANSMIT_DMA_ENABLE:  DMA enable for transmission
+      \arg        USART_TRANSMIT_DMA_DISABLE: DMA disable for transmission
     \param[out] none
     \retval     none
 */
 void usart_dma_transmit_config(uint32_t usart_periph, uint32_t dmacmd)
 {
-    uint32_t ctl = 0U;
-
-    ctl = USART_CTL2(usart_periph);
-    ctl &= ~USART_CTL2_DENT;
-    ctl |= dmacmd;
-    /* configure DMA transmission */
-    USART_CTL2(usart_periph) = ctl;
+    USART_CTL2(usart_periph) &= ~(USART_CTL2_DENT);
+    USART_CTL2(usart_periph) |= (USART_CTL2_DENT & dmacmd);
 }
 
 /*!

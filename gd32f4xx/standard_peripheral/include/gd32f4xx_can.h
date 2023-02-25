@@ -406,8 +406,8 @@ typedef struct {
     ControlStatus time_triggered;                                       /*!< time triggered communication mode */
     ControlStatus auto_bus_off_recovery;                                /*!< automatic bus-off recovery */
     ControlStatus auto_wake_up;                                         /*!< automatic wake-up mode */
-    ControlStatus auto_retrans;                                         /*!< automatic retransmission mode disable */
-    ControlStatus rec_fifo_overwrite;                                   /*!< receive FIFO overwrite mode disable */
+    ControlStatus auto_retrans;                                         /*!< automatic retransmission mode */
+    ControlStatus rec_fifo_overwrite;                                   /*!< receive FIFO overwrite mode */
     ControlStatus trans_fifo_order;                                     /*!< transmit FIFO order */
     uint16_t prescaler;                                                 /*!< baudrate prescaler */
 } can_parameter_struct;
@@ -586,10 +586,10 @@ typedef enum {
 #define CAN_STATE_PENDING                  ((uint32_t)0x00000000U)      /*!< CAN pending */
 
 /* CAN communication mode */
-#define GD32_CAN_NORMAL_MODE               ((uint8_t)0x00U)             /*!< normal communication mode */
-#define GD32_CAN_LOOPBACK_MODE             ((uint8_t)0x01U)             /*!< loopback communication mode */
-#define GD32_CAN_SILENT_MODE               ((uint8_t)0x02U)             /*!< silent communication mode */
-#define GD32_CAN_SILENT_LOOPBACK_MODE      ((uint8_t)0x03U)             /*!< loopback and silent communication mode */
+#define CAN_NORMAL_MODE                    ((uint8_t)0x00U)             /*!< normal communication mode */
+#define CAN_LOOPBACK_MODE                  ((uint8_t)0x01U)             /*!< loopback communication mode */
+#define CAN_SILENT_MODE                    ((uint8_t)0x02U)             /*!< silent communication mode */
+#define CAN_SILENT_LOOPBACK_MODE           ((uint8_t)0x03U)             /*!< loopback and silent communication mode */
 
 /* CAN resynchronisation jump width */
 #define CAN_BT_SJW_1TQ                     ((uint8_t)0x00U)             /*!< 1 time quanta */
@@ -666,7 +666,7 @@ typedef enum {
 #define CAN_FT_REMOTE                      ((uint32_t)0x00000002U)      /*!< remote frame */
 
 /* CAN timeout */
-#define GD32_CAN_TIMEOUT                   ((uint32_t)0x0000FFFFU)      /*!< timeout value */
+#define CAN_TIMEOUT                        ((uint32_t)0x0000FFFFU)      /*!< timeout value */
 
 /* interrupt enable bits */
 #define CAN_INT_TME                        CAN_INTEN_TMEIE              /*!< transmit mailbox empty interrupt enable */

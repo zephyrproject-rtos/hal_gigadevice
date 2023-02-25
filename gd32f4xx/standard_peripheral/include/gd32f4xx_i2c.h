@@ -144,10 +144,10 @@ OF SUCH DAMAGE.
 #define I2C_SAMCS_RFRIE               BIT(7)                            /*!< rxframe rise interrupt enable */
 #define I2C_SAMCS_TXF                 BIT(8)                            /*!< level of txframe signal */
 #define I2C_SAMCS_RXF                 BIT(9)                            /*!< level of rxframe signal */
-#define I2C_SAMCS_TFF                 BIT(12)                           /*!< txframe fall flag, cleared by software write 0 */
-#define I2C_SAMCS_TFR                 BIT(13)                           /*!< txframe rise flag, cleared by software write 0 */
-#define I2C_SAMCS_RFF                 BIT(14)                           /*!< rxframe fall flag, cleared by software write 0 */
-#define I2C_SAMCS_RFR                 BIT(15)                           /*!< rxframe rise flag, cleared by software write 0 */
+#define I2C_SAMCS_TFF                 BIT(12)                           /*!< txframe fall flag */
+#define I2C_SAMCS_TFR                 BIT(13)                           /*!< txframe rise flag */
+#define I2C_SAMCS_RFF                 BIT(14)                           /*!< rxframe fall flag */
+#define I2C_SAMCS_RFR                 BIT(15)                           /*!< rxframe rise flag */
 
 /* constants definitions */
 /* define the I2C bit position and its register index offset */
@@ -326,12 +326,6 @@ typedef enum {
 /* address mode for the I2C slave */
 #define I2C_ADDFORMAT_7BITS           ((uint32_t)0x00000000U)           /*!< address format is 7 bits */
 #define I2C_ADDFORMAT_10BITS          I2C_SADDR0_ADDFORMAT              /*!< address format is 10 bits */
-
-/* I2C clock frequency, MHz */
-#define I2CCLK_MAX                    ((uint32_t)0x0000003CU)           /*!< i2cclk maximum value */
-#define I2CCLK_MIN                    ((uint32_t)0x00000002U)           /*!< i2cclk minimum value */
-#define I2CCLK_FM_MIN                 ((uint32_t)0x00000008U)           /*!< i2cclk minimum value for fast mode */
-#define I2CCLK_FM_PLUS_MIN            ((uint32_t)0x00000018U)           /*!< i2cclk minimum value for fast mode plus */
 
 /* function declarations */
 /* initialization functions */

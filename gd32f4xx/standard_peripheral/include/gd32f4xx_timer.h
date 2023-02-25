@@ -561,9 +561,9 @@ typedef struct
 /* slave mode control */
 #define SMCFG_SMC(regval)                   (BITS(0, 2) & ((uint32_t)(regval) << 0U)) 
 #define TIMER_SLAVE_MODE_DISABLE            SMCFG_SMC(0)                            /*!< slave mode disable */
-#define TIMER_ENCODER_MODE0                 SMCFG_SMC(1)                            /*!< encoder mode 0 */
-#define TIMER_ENCODER_MODE1                 SMCFG_SMC(2)                            /*!< encoder mode 1 */
-#define TIMER_ENCODER_MODE2                 SMCFG_SMC(3)                            /*!< encoder mode 2 */
+#define TIMER_QUAD_DECODER_MODE0            SMCFG_SMC(1)                            /*!< quadrature decoder mode 0 */
+#define TIMER_QUAD_DECODER_MODE1            SMCFG_SMC(2)                            /*!< quadrature decoder mode 1 */
+#define TIMER_QUAD_DECODER_MODE2            SMCFG_SMC(3)                            /*!< quadrature decoder mode 2 */
 #define TIMER_SLAVE_MODE_RESTART            SMCFG_SMC(4)                            /*!< restart mode */
 #define TIMER_SLAVE_MODE_PAUSE              SMCFG_SMC(5)                            /*!< pause mode */
 #define TIMER_SLAVE_MODE_EVENT              SMCFG_SMC(6)                            /*!< event mode */
@@ -622,7 +622,7 @@ void timer_deinit(uint32_t timer_periph);
 /* initialize TIMER init parameter struct */
 void timer_struct_para_init(timer_parameter_struct* initpara);
 /* initialize TIMER counter */
-void gd32_timer_init(uint32_t timer_periph, timer_parameter_struct* initpara);
+void timer_init(uint32_t timer_periph, timer_parameter_struct* initpara);
 /* enable a TIMER */
 void timer_enable(uint32_t timer_periph);
 /* disable a TIMER */

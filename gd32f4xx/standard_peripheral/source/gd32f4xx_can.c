@@ -39,6 +39,7 @@ OF SUCH DAMAGE.
 */
 
 #include "gd32f4xx_can.h"
+#include <stdlib.h>
 
 #define CAN_ERROR_HANDLE(s)     do{}while(1)
 
@@ -51,10 +52,10 @@ OF SUCH DAMAGE.
 */
 void can_deinit(uint32_t can_periph)
 {
-    if(CAN0 == can_periph) {
+    if(CAN0 == can_periph){
         rcu_periph_reset_enable(RCU_CAN0RST);
         rcu_periph_reset_disable(RCU_CAN0RST);
-    } else {
+    }else{
         rcu_periph_reset_enable(RCU_CAN1RST);
         rcu_periph_reset_disable(RCU_CAN1RST);
     }
@@ -75,21 +76,25 @@ void can_struct_para_init(can_struct_type_enum type, void *p_struct)
 {
     uint8_t i;
 
+    if(NULL == p_struct) {
+        CAN_ERROR_HANDLE("struct parameter can not be NULL \r\n");
+    }
+
     /* get type of the struct */
     switch(type) {
     /* used for can_init() */
     case CAN_INIT_STRUCT:
         ((can_parameter_struct *)p_struct)->auto_bus_off_recovery = DISABLE;
-        ((can_parameter_struct *)p_struct)->auto_retrans = ENABLE;
+        ((can_parameter_struct *)p_struct)->auto_retrans = DISABLE;
         ((can_parameter_struct *)p_struct)->auto_wake_up = DISABLE;
         ((can_parameter_struct *)p_struct)->prescaler = 0x03FFU;
-        ((can_parameter_struct *)p_struct)->rec_fifo_overwrite = ENABLE;
+        ((can_parameter_struct *)p_struct)->rec_fifo_overwrite = DISABLE;
         ((can_parameter_struct *)p_struct)->resync_jump_width = CAN_BT_SJW_1TQ;
         ((can_parameter_struct *)p_struct)->time_segment_1 = CAN_BT_BS1_3TQ;
         ((can_parameter_struct *)p_struct)->time_segment_2 = CAN_BT_BS2_1TQ;
         ((can_parameter_struct *)p_struct)->time_triggered = DISABLE;
         ((can_parameter_struct *)p_struct)->trans_fifo_order = DISABLE;
-        ((can_parameter_struct *)p_struct)->working_mode = GD32_CAN_NORMAL_MODE;
+        ((can_parameter_struct *)p_struct)->working_mode = CAN_NORMAL_MODE;
 
         break;
     /* used for can_filter_init() */
@@ -143,7 +148,7 @@ void can_struct_para_init(can_struct_type_enum type, void *p_struct)
     \param[in]  can_periph
       \arg        CANx(x=0,1)
     \param[in]  can_parameter_init: parameters for CAN initializtion
-      \arg        working_mode: GD32_CAN_NORMAL_MODE, GD32_CAN_LOOPBACK_MODE, GD32_CAN_SILENT_MODE, GD32_CAN_SILENT_LOOPBACK_MODE
+      \arg        working_mode: CAN_NORMAL_MODE, CAN_LOOPBACK_MODE, CAN_SILENT_MODE, CAN_SILENT_LOOPBACK_MODE
       \arg        resync_jump_width: CAN_BT_SJW_xTQ(x=1, 2, 3, 4)
       \arg        time_segment_1: CAN_BT_BS1_xTQ(1..16)
       \arg        time_segment_2: CAN_BT_BS2_xTQ(1..8)
@@ -199,17 +204,17 @@ ErrStatus can_init(uint32_t can_periph, can_parameter_struct *can_parameter_init
         } else {
             CAN_CTL(can_periph) &= ~CAN_CTL_AWU;
         }
-        /* automatic retransmission mode disable */
-        if(DISABLE == can_parameter_init->auto_retrans) {
-            CAN_CTL(can_periph) |= CAN_CTL_ARD;
-        } else {
+        /* automatic retransmission mode */
+        if(ENABLE == can_parameter_init->auto_retrans) {
             CAN_CTL(can_periph) &= ~CAN_CTL_ARD;
-        }
-        /* receive FIFO overwrite mode disable */
-        if(DISABLE == can_parameter_init->rec_fifo_overwrite) {
-            CAN_CTL(can_periph) |= CAN_CTL_RFOD;
         } else {
+            CAN_CTL(can_periph) |= CAN_CTL_ARD;
+        }
+        /* receive FIFO overwrite mode */
+        if(ENABLE == can_parameter_init->rec_fifo_overwrite) {
             CAN_CTL(can_periph) &= ~CAN_CTL_RFOD;
+        } else {
+            CAN_CTL(can_periph) |= CAN_CTL_RFOD;
         }
         /* transmit FIFO order */
         if(ENABLE == can_parameter_init->trans_fifo_order) {
@@ -345,7 +350,7 @@ void can_debug_freeze_enable(uint32_t can_periph)
 
     if(CAN0 == can_periph) {
         dbg_periph_enable(DBG_CAN0_HOLD);
-    } else {
+    }else{
         dbg_periph_enable(DBG_CAN1_HOLD);
     }
 }
@@ -362,9 +367,9 @@ void can_debug_freeze_disable(uint32_t can_periph)
     /* set DFZ bit */
     CAN_CTL(can_periph) &= ~CAN_CTL_DFZ;
 
-    if(CAN0 == can_periph) {
+    if(CAN0 == can_periph){
         dbg_periph_disable(DBG_CAN0_HOLD);
-    } else {
+    }else{
         dbg_periph_disable(DBG_CAN1_HOLD);
     }
 }
