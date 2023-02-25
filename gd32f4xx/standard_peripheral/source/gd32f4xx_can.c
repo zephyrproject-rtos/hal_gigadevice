@@ -94,7 +94,7 @@ void can_struct_para_init(can_struct_type_enum type, void *p_struct)
         ((can_parameter_struct *)p_struct)->time_segment_2 = CAN_BT_BS2_1TQ;
         ((can_parameter_struct *)p_struct)->time_triggered = DISABLE;
         ((can_parameter_struct *)p_struct)->trans_fifo_order = DISABLE;
-        ((can_parameter_struct *)p_struct)->working_mode = CAN_NORMAL_MODE;
+        ((can_parameter_struct *)p_struct)->working_mode = GD32_CAN_NORMAL_MODE;
 
         break;
     /* used for can_filter_init() */
@@ -148,7 +148,7 @@ void can_struct_para_init(can_struct_type_enum type, void *p_struct)
     \param[in]  can_periph
       \arg        CANx(x=0,1)
     \param[in]  can_parameter_init: parameters for CAN initializtion
-      \arg        working_mode: CAN_NORMAL_MODE, CAN_LOOPBACK_MODE, CAN_SILENT_MODE, CAN_SILENT_LOOPBACK_MODE
+      \arg        working_mode: GD32_CAN_NORMAL_MODE, GD32_CAN_LOOPBACK_MODE, GD32_CAN_SILENT_MODE, GD32_CAN_SILENT_LOOPBACK_MODE
       \arg        resync_jump_width: CAN_BT_SJW_xTQ(x=1, 2, 3, 4)
       \arg        time_segment_1: CAN_BT_BS1_xTQ(1..16)
       \arg        time_segment_2: CAN_BT_BS2_xTQ(1..8)
