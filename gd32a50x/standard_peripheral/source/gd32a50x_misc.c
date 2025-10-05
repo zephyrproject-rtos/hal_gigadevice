@@ -84,7 +84,7 @@ void nvic_irq_enable(uint8_t nvic_irq, uint8_t nvic_irq_pre_priority,
         temp_pre=2U;
         temp_sub=0x2U;
     }
-    /* get the temp_priority to fill the NVIC->IP register */
+    /* get the temp_priority to fill the NVIC->IPR register */
     temp_priority = (uint32_t)nvic_irq_pre_priority << (0x4U - temp_pre);
     temp_priority |= (uint32_t)nvic_irq_sub_priority &((uint32_t)0x0FU >> (0x4U - temp_sub));
     temp_priority = temp_priority << 0x04U;
