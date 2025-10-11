@@ -5,18 +5,22 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}/scripts
     strategy:
       fail-fast: false
       matrix:
         python-version:
-          - "3.7"
-          - "3.8"
-          - "3.9"
           - "3.10"
+          - "3.11"
+          - "3.12"
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout the code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+        with:
+          fetch-depth: 0
       - name: Set up Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c
         with:
           python-version: ${{ matrix.python-version }}
       - name: install dependencies
