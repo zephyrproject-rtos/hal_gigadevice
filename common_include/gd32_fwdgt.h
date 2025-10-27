@@ -16,6 +16,8 @@
 #include <gd32f403_fwdgt.h>
 #elif defined(CONFIG_SOC_SERIES_GD32F4XX)
 #include <gd32f4xx_fwdgt.h>
+#elif defined(CONFIG_SOC_SERIES_GD32F5XX)
+#include <gd32f5xx_fwdgt.h>
 #elif defined(CONFIG_SOC_SERIES_GD32L23X)
 #include <gd32l23x_fwdgt.h>
 #elif defined(CONFIG_SOC_SERIES_GD32VF103)

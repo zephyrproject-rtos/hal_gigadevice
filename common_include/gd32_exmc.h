@@ -12,6 +12,8 @@
 #include <gd32f403_exmc.h>
 #elif defined(CONFIG_SOC_SERIES_GD32F4XX)
 #include <gd32f4xx_exmc.h>
+#elif defined(CONFIG_SOC_SERIES_GD32F5XX)
+#include <gd32f5xx_exmc.h>
 #elif defined(CONFIG_SOC_SERIES_GD32VF103)
 #include <gd32vf103_exmc.h>
 #endif
