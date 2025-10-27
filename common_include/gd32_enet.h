@@ -8,4 +8,6 @@
 #include <gd32e50x_enet.h>
 #elif defined(CONFIG_SOC_SERIES_GD32F4XX)
 #include <gd32f4xx_enet.h>
+#elif defined(CONFIG_SOC_SERIES_GD32F5XX)
+#include <gd32f5xx_enet.h>
 #endif
