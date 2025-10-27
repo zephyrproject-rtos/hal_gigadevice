@@ -12,6 +12,8 @@
 #include <gd32f403_can.h>
 #elif defined(CONFIG_SOC_SERIES_GD32F4XX)
 #include <gd32f4xx_can.h>
+#elif defined(CONFIG_SOC_SERIES_GD32F5XX)
+#include <gd32f5xx_can.h>
 #elif defined(CONFIG_SOC_SERIES_GD32VF103)
 #include <gd32vf103_can.h>
 #endif
