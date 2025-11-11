@@ -1599,9 +1599,9 @@ void timer_master_output_trigger_source_select(uint32_t timer_periph, uint32_t o
     \param[in]  slavemode:
                 only one parameter can be selected which is shown as below:
       \arg        TIMER_SLAVE_MODE_DISABLE: slave mode disable(TIMERx(x=0..4,7,8,11))
-      \arg        TIMER_ENCODER_MODE0: encoder mode 0(TIMERx(x=0..4,7))
-      \arg        TIMER_ENCODER_MODE1: encoder mode 1(TIMERx(x=0..4,7))
-      \arg        TIMER_ENCODER_MODE2: encoder mode 2(TIMERx(x=0..4,7))
+      \arg        TIMER_QUAD_DECODER_MODE0: quadrature decoder mode 0(TIMERx(x=0..4,7))
+      \arg        TIMER_QUAD_DECODER_MODE1: quadrature decoder mode 1(TIMERx(x=0..4,7))
+      \arg        TIMER_QUAD_DECODER_MODE2: quadrature decoder mode 2(TIMERx(x=0..4,7))
       \arg        TIMER_SLAVE_MODE_RESTART: restart mode(TIMERx(x=0..4,7,8,11))
       \arg        TIMER_SLAVE_MODE_PAUSE: pause mode(TIMERx(x=0..4,7,8,11))
       \arg        TIMER_SLAVE_MODE_EVENT: event mode(TIMERx(x=0..4,7,8,11))
@@ -1668,9 +1668,9 @@ void timer_external_trigger_config(uint32_t timer_periph, uint32_t extprescaler,
     \param[in]  timer_periph: TIMERx(x=0..4,7)
     \param[in]  decomode:
                 only one parameter can be selected which is shown as below:
-      \arg        TIMER_ENCODER_MODE0: counter counts on CI0FE0 edge depending on CI1FE1 level
-      \arg        TIMER_ENCODER_MODE1: counter counts on CI1FE1 edge depending on CI0FE0 level
-      \arg        TIMER_ENCODER_MODE2: counter counts on both CI0FE0 and CI1FE1 edges depending on the level of the other input
+      \arg        TIMER_QUAD_DECODER_MODE0: counter counts on CI0FE0 edge depending on CI1FE1 level
+      \arg        TIMER_QUAD_DECODER_MODE1: counter counts on CI1FE1 edge depending on CI0FE0 level
+      \arg        TIMER_QUAD_DECODER_MODE2: counter counts on both CI0FE0 and CI1FE1 edges depending on the level of the other input
     \param[in]  ic0polarity:
                 only one parameter can be selected which is shown as below:
       \arg        TIMER_IC_POLARITY_RISING: capture rising edge
@@ -1932,10 +1932,10 @@ void timer_output_value_selection_config(uint32_t timer_periph, uint16_t outsel)
       \arg        TIMER_FLAG_CMT: channel control update flag,TIMERx(x=0,7)
       \arg        TIMER_FLAG_TRG: trigger flag,TIMERx(x=0,7,8,11)
       \arg        TIMER_FLAG_BRK: break flag,TIMERx(x=0,7)
-      \arg        TIMER_FLAG_CH0OF: channel 0 overcapture flag,TIMERx(x=0..4,7..11)
-      \arg        TIMER_FLAG_CH1OF: channel 1 overcapture flag,TIMERx(x=0..4,7,8,11)
-      \arg        TIMER_FLAG_CH2OF: channel 2 overcapture flag,TIMERx(x=0..4,7)
-      \arg        TIMER_FLAG_CH3OF: channel 3 overcapture flag,TIMERx(x=0..4,7)
+      \arg        TIMER_FLAG_CH0O: channel 0 overcapture flag,TIMERx(x=0..4,7..11)
+      \arg        TIMER_FLAG_CH1O: channel 1 overcapture flag,TIMERx(x=0..4,7,8,11)
+      \arg        TIMER_FLAG_CH2O: channel 2 overcapture flag,TIMERx(x=0..4,7)
+      \arg        TIMER_FLAG_CH3O: channel 3 overcapture flag,TIMERx(x=0..4,7)
     \param[out] none
     \retval     FlagStatus: SET or RESET
 */
@@ -1961,10 +1961,10 @@ FlagStatus timer_flag_get(uint32_t timer_periph, uint32_t flag)
       \arg        TIMER_FLAG_CMT: channel control update flag,TIMERx(x=0,7)
       \arg        TIMER_FLAG_TRG: trigger flag,TIMERx(x=0,7,8,11)
       \arg        TIMER_FLAG_BRK: break flag,TIMERx(x=0,7)
-      \arg        TIMER_FLAG_CH0OF: channel 0 overcapture flag,TIMERx(x=0..4,7..11)
-      \arg        TIMER_FLAG_CH1OF: channel 1 overcapture flag,TIMERx(x=0..4,7,8,11)
-      \arg        TIMER_FLAG_CH2OF: channel 2 overcapture flag,TIMERx(x=0..4,7)
-      \arg        TIMER_FLAG_CH3OF: channel 3 overcapture flag,TIMERx(x=0..4,7)
+      \arg        TIMER_FLAG_CH0O: channel 0 overcapture flag,TIMERx(x=0..4,7..11)
+      \arg        TIMER_FLAG_CH1O: channel 1 overcapture flag,TIMERx(x=0..4,7,8,11)
+      \arg        TIMER_FLAG_CH2O: channel 2 overcapture flag,TIMERx(x=0..4,7)
+      \arg        TIMER_FLAG_CH3O: channel 3 overcapture flag,TIMERx(x=0..4,7)
     \param[out] none
     \retval     none
 */
