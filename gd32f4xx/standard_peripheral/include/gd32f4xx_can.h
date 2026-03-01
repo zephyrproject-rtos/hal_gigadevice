@@ -666,7 +666,8 @@ typedef enum {
 #define CAN_FT_REMOTE                      ((uint32_t)0x00000002U)      /*!< remote frame */
 
 /* CAN timeout */
-#define GD32_CAN_TIMEOUT                   ((uint32_t)0x0000FFFFU)      /*!< timeout value */
+#define CAN_TIMEOUT                        ((uint32_t)0x0000FFFFU)      /*!< timeout value */
+#define GD32_CAN_TIMEOUT                   CAN_TIMEOUT                  /*!< compatibility alias */
 
 /* interrupt enable bits */
 #define CAN_INT_TME                        CAN_INTEN_TMEIE              /*!< transmit mailbox empty interrupt enable */
