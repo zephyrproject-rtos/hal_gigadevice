@@ -1,7 +1,7 @@
 # GD32F470XX pin definitions
 #
 # Sources:
-# - GD32F470XX Datasheet (Revision 1.1)
+# - GD32F470XX Datasheet (Revision 2.2)
 #
 # Pin codes:
 #
@@ -17,6 +17,7 @@
 # - 3072Kb Flash, 256Kb SRAM: K
 #
 # Copyright (c) 2021 Teslabs Engineering S.L.
+# Copyright (c) 2026 ZianCube
 # SPDX-License-Identifier: Apache 2.0
 
 model: af
@@ -42,7 +43,7 @@ pins:
       TIMER7_ETI: 3
       USART1_CTS: 7
       UART3_TX: 8
-      ETH_MII_CRS: 11
+      ENET_MII_CRS: 11
       EVENTOUT: 15
   PA1:
     pincodes: [I, Z, V]
@@ -53,8 +54,8 @@ pins:
       SPI3_MOSI: 5
       USART1_RTS: 7
       UART3_RX: 8
-      ETH_MII_RX_CLK: 11
-      ETH_RMII_REF_CLK: 11
+      ENET_MII_RX_CLK: 11
+      ENET_RMII_REF_CLK: 11
       EVENTOUT: 15
   PA2:
     pincodes: [I, Z, V]
@@ -65,7 +66,7 @@ pins:
       TIMER8_CH0: 3
       I2S_CKIN: 5
       USART1_TX: 7
-      ETH_MDIO: 11
+      ENET_MDIO: 11
       EVENTOUT: 15
   PA3:
     pincodes: [I, Z, V]
@@ -77,7 +78,7 @@ pins:
       I2S1_MCK: 5
       USART1_RX: 7
       USBHS_ULPI_D0: 10
-      ETH_MII_COL: 11
+      ENET_MII_COL: 11
       TLI_B5: 14
       EVENTOUT: 15
   PA4:
@@ -127,8 +128,8 @@ pins:
       TIMER7_CH0_ON: 3
       SPI0_MOSI: 5
       TIMER13_CH0: 9
-      ETH_MII_RX_DV: 11
-      ETH_RMII_CRS_DV: 11
+      ENET_MII_RX_DV: 11
+      ENET_RMII_CRS_DV: 11
       EXMC_SDNWE: 12
       EVENTOUT: 15
   PA8:
@@ -221,20 +222,20 @@ pins:
       I2S2_SD: 7
       TLI_R3: 9
       USBHS_ULPI_D1: 10
-      ETH_MII_RXD2: 11
+      ENET_MII_RXD2: 11
       SDIO_D1: 12
       EVENTOUT: 15
   PB1:
     pincodes: [I, Z, V]
     afs:
       ADC01_IN9: ANALOG
-      TIMER0_CH1_ON: 1
+      TIMER0_CH2_ON: 1
       TIMER2_CH3: 2
       TIMER7_CH2_ON: 3
       SPI4_NSS: 6
       TLI_R6: 9
       USBHS_ULPI_D2: 10
-      ETH_MII_RXD3: 11
+      ENET_MII_RXD3: 11
       SDIO_D2: 12
       EVENTOUT: 15
   PB2:
@@ -280,7 +281,7 @@ pins:
       I2S2_SD: 6
       CAN1_RX: 9
       USBHS_ULPI_D7: 10
-      ETH_PPS_OUT: 11
+      ENET_PPS_OUT: 11
       EXMC_SDCKE1: 12
       DCI_D10: 13
       EVENTOUT: 15
@@ -301,6 +302,7 @@ pins:
       I2C0_SDA: 4
       USART0_RX: 7
       EXMC_NL: 12
+      EXMC_NADV: 12
       DCI_VSYNC: 13
       EVENTOUT: 15
   PB8:
@@ -313,7 +315,7 @@ pins:
       I2C0_SCL: 4
       SPI4_MOSI: 6
       CAN0_RX: 9
-      ETH_MII_TXD3: 11
+      ENET_MII_TXD3: 11
       SDIO_D4: 12
       DCI_D6: 13
       TLI_B6: 14
@@ -326,7 +328,7 @@ pins:
       TIMER10_CH0: 3
       I2C0_SDA: 4
       SPI1_NSS: 5
-      I2S1_NSS: 5
+      I2S1_WS: 5
       CAN0_TX: 9
       SDIO_D5: 12
       DCI_D7: 13
@@ -342,7 +344,7 @@ pins:
       I2S2_MCK: 6
       USART2_TX: 7
       USBHS_ULPI_D3: 10
-      ETH_MII_RX_ER: 11
+      ENET_MII_RX_ER: 11
       SDIO_D7: 12
       TLI_G4: 14
       EVENTOUT: 15
@@ -354,8 +356,8 @@ pins:
       I2S_CKIN: 5
       USART2_RX: 7
       USBHS_ULPI_D4: 10
-      ETH_MII_TX_EN: 11
-      ETH_RMII_TX_EN: 11
+      ENET_MII_TX_EN: 11
+      ENET_RMII_TX_EN: 11
       TLI_G5: 14
       EVENTOUT: 15
   PB12:
@@ -369,8 +371,8 @@ pins:
       USART2_CK: 7
       CAN1_RX: 9
       USBHS_ULPI_D5: 10
-      ETH_MII_TXD0: 11
-      ETH_RMII_TXD0: 11
+      ENET_MII_TXD0: 11
+      ENET_RMII_TXD0: 11
       USBHS_ID: 12
       EVENTOUT: 15
   PB13:
@@ -384,8 +386,8 @@ pins:
       USART2_CTS: 7
       CAN1_TX: 9
       USBHS_ULPI_D6: 10
-      ETH_MII_TXD1: 11
-      ETH_RMII_TXD1: 11
+      ENET_MII_TXD1: 11
+      ENET_RMII_TXD1: 11
       EVENTOUT: 15
   PB14:
     pincodes: [I, Z, V]
@@ -424,7 +426,7 @@ pins:
       I2S2_SD: 5
       SPI1_MOSI: 7
       I2S1_SD: 7
-      ETH_MDC: 11
+      ENET_MDC: 11
       EVENTOUT: 15
   PC2:
     pincodes: [I, Z, V]
@@ -433,7 +435,7 @@ pins:
       SPI1_MISO: 5
       I2S1_ADD_SD: 6
       USBHS_ULPI_DIR: 10
-      ETH_MII_TXD2: 11
+      ENET_MII_TXD2: 11
       EXMC_SDNE0: 12
       EVENTOUT: 15
   PC3:
@@ -443,23 +445,23 @@ pins:
       SPI1_MOSI: 5
       I2S1_SD: 5
       USBHS_ULPI_NXT: 10
-      ETH_MII_TX_CLK: 11
+      ENET_MII_TX_CLK: 11
       EXMC_SDCKE0: 12
       EVENTOUT: 15
   PC4:
     pincodes: [I, Z, V]
     afs:
       ADC01_IN14: ANALOG
-      ETH_MII_RXD0: 11
-      ETH_RMII_RXD0: 11
+      ENET_MII_RXD0: 11
+      ENET_RMII_RXD0: 11
       EVENTOUT: 15
   PC5:
     pincodes: [I, Z, V]
     afs:
       ADC01_IN15: ANALOG
       USART2_RX: 7
-      ETH_MII_RXD1: 11
-      ETH_RMII_RXD1: 11
+      ENET_MII_RXD1: 11
+      ENET_RMII_RXD1: 11
       EXMC_SDCKE0: 12
       EVENTOUT: 15
   PC6:
@@ -534,7 +536,7 @@ pins:
       SPI2_MOSI: 6
       I2S2_SD: 6
       USART2_CK: 7
-      UART4_RX: 8
+      UART4_TX: 8
       SDIO_CK: 12
       DCI_D9: 13
       EVENTOUT: 15
@@ -638,6 +640,7 @@ pins:
     afs:
       USART2_CTS: 7
       EXMC_A16: 12
+      EXMC_CLE: 12
       EVENTOUT: 15
   PD12:
     pincodes: [I, Z, V]
@@ -645,6 +648,7 @@ pins:
       TIMER3_CH0: 2
       USART2_RTS: 7
       EXMC_A17: 12
+      EXMC_ALE: 12
       EVENTOUT: 15
   PD13:
     pincodes: [I, Z, V]
@@ -685,7 +689,7 @@ pins:
     pincodes: [I, Z, V]
     afs:
       SPI3_SCK: 5
-      ETH_MII_TXD3: 11
+      ENET_MII_TXD3: 11
       EXMC_A23: 12
       EVENTOUT: 15
   PE3:
@@ -945,7 +949,7 @@ pins:
     afs:
       SPI5_NSS: 5
       USART5_RTS: 8
-      ETH_PPS_OUT: 11
+      ENET_PPS_OUT: 11
       EXMC_SDCLK: 12
       EVENTOUT: 15
   PG9:
@@ -970,8 +974,8 @@ pins:
     afs:
       SPI5_IO3: 5
       SPI3_SCK: 6
-      ETH_MII_TX_EN: 11
-      ETH_RMII_TX_EN: 11
+      ENET_MII_TX_EN: 11
+      ENET_RMII_TX_EN: 11
       EXMC_NCE3_1: 12
       DCI_D3: 13
       TLI_B3: 14
@@ -992,8 +996,8 @@ pins:
       SPI5_SCK: 5
       SPI3_MOSI: 6
       USART5_CTS: 8
-      ETH_MII_TXD0: 11
-      ETH_RMII_TXD0: 11
+      ENET_MII_TXD0: 11
+      ENET_RMII_TXD0: 11
       EXMC_A24: 12
       EVENTOUT: 15
   PG14:
@@ -1002,8 +1006,8 @@ pins:
       SPI5_MOSI: 5
       SPI3_NSS: 6
       USART5_TX: 8
-      ETH_MII_TXD1: 11
-      ETH_RMII_TXD1: 11
+      ENET_MII_TXD1: 11
+      ENET_RMII_TXD1: 11
       EXMC_A25: 12
       EVENTOUT: 15
   PG15:
@@ -1024,7 +1028,7 @@ pins:
   PH2:
     pincodes: [I]
     afs:
-      ETH_MII_CRS: 11
+      ENET_MII_CRS: 11
       EXMC_SDCKE0: 12
       TLI_R0: 14
       EVENTOUT: 15
@@ -1032,7 +1036,7 @@ pins:
     pincodes: [I]
     afs:
       I2C1_TXFRAME: 4
-      ETH_MII_COL: 11
+      ENET_MII_COL: 11
       EXMC_SDNE0: 12
       TLI_R1: 14
       EVENTOUT: 15
@@ -1055,7 +1059,7 @@ pins:
       I2C1_SMBA: 4
       SPI4_SCK: 5
       TIMER11_CH0: 9
-      ETH_MII_RXD2: 11
+      ENET_MII_RXD2: 11
       EXMC_SDNE1: 12
       DCI_D8: 13
       EVENTOUT: 15
@@ -1064,7 +1068,7 @@ pins:
     afs:
       I2C2_SCL: 4
       SPI4_MISO: 5
-      ETH_MII_RXD3: 11
+      ENET_MII_RXD3: 11
       EXMC_SDCKE1: 12
       DCI_D9: 13
       EVENTOUT: 15
@@ -1218,7 +1222,7 @@ pins:
   PI10:
     pincodes: [I]
     afs:
-      ETH_MII_RX_ER: 11
+      ENET_MII_RX_ER: 11
       EXMC_D31: 12
       TLI_HSYNC: 14
       EVENTOUT: 15
