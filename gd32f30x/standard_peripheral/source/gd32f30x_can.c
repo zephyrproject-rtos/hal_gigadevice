@@ -724,7 +724,7 @@ uint8_t can_receive_message_length_get(uint32_t can_periph, uint8_t fifo_number)
     \param[in]  working_mode
                 only one parameter can be selected which is shown as below:
       \arg        CAN_MODE_INITIALIZE
-      \arg        CAN_MODE_NORMAL
+      \arg        GD32_CAN_MODE_NORMAL
       \arg        CAN_MODE_SLEEP
     \param[out] none
     \retval     ErrStatus: SUCCESS or ERROR
@@ -749,7 +749,7 @@ ErrStatus can_working_mode_set(uint32_t can_periph, uint8_t working_mode)
         } else {
             flag = SUCCESS;
         }
-    } else if(CAN_MODE_NORMAL == working_mode) {
+    } else if(GD32_CAN_MODE_NORMAL == working_mode) {
         /* enter normal mode */
         CAN_CTL(can_periph) &= ~(uint32_t)(CAN_CTL_SLPWMOD | CAN_CTL_IWMOD);
         /* wait the acknowledgment */

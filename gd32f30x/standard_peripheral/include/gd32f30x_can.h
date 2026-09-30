@@ -642,7 +642,7 @@ typedef enum {
 
 /* CAN working mode */
 #define CAN_MODE_INITIALIZE                ((uint8_t)0x01U)             /*!< CAN initialize mode */
-#define CAN_MODE_NORMAL                    ((uint8_t)0x02U)             /*!< CAN normal mode */
+#define GD32_CAN_MODE_NORMAL                    ((uint8_t)0x02U)             /*!< CAN normal mode */
 #define CAN_MODE_SLEEP                     ((uint8_t)0x04U)             /*!< CAN sleep mode */
 
 /* filter bits */
