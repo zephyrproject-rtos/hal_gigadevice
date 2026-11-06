@@ -10,6 +10,8 @@
 #include <gd32e10x_bkp.h>
 #elif defined(CONFIG_SOC_SERIES_GD32E50X)
 #include <gd32e50x_bkp.h>
+#elif defined(CONFIG_SOC_SERIES_GD32F30X)
+#include <gd32f30x_bkp.h>
 #elif defined(CONFIG_SOC_SERIES_GD32F403)
 #include <gd32f403_bkp.h>
 #elif defined(CONFIG_SOC_SERIES_GD32VF103)
