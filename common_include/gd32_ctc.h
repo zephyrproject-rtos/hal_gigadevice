@@ -8,6 +8,8 @@
 #include <gd32e10x_ctc.h>
 #elif defined(CONFIG_SOC_SERIES_GD32E50X)
 #include <gd32e50x_ctc.h>
+#elif defined(CONFIG_SOC_SERIES_GD32F30X)
+#include <gd32f30x_ctc.h>
 #elif defined(CONFIG_SOC_SERIES_GD32F3X0)
 #include <gd32f3x0_ctc.h>
 #elif defined(CONFIG_SOC_SERIES_GD32F403)
