@@ -23,6 +23,8 @@
 #elif defined(CONFIG_SOC_SERIES_GD32F527)
 #include <gd32f527_i2c.h>
 #include <gd32f527_i2c_add.h>
+#elif defined(CONFIG_SOC_SERIES_GD32H73X_75X)
+#include <gd32h73x_75x_i2c.h>
 #elif defined(CONFIG_SOC_SERIES_GD32L23X)
 #include <gd32l23x_i2c.h>
 #elif defined(CONFIG_SOC_SERIES_GD32VF103)

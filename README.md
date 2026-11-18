@@ -128,9 +128,28 @@ conflict resolution. See below list with the proposed solution:
   - i2c have different implement than current gd32 i2c driver. no need to patch
     upper i2c speed requirement.
 
+- gd32h73x_75x
+
+  - `gd32h73x_75x.h` must include the Zephyr device mapping header
+    `gd32_hal_device.h` (located at `modules/hal_gigadevice/` in the Zephyr
+    repository) before the device selection check. Keep this hook when
+    importing a new firmware version, otherwise GD32H759 builds fail at the
+    device selection `#error`:
+    ``` diff
+     #ifdef __cplusplus
+     extern "C" {
+     #endif
+
+    +#ifdef __ZEPHYR__
+    +#include <gd32_hal_device.h>
+    +#endif
+    +
+     #if !defined (GD32H73X_75X) && !defined (GD32H75E)
+    ```
+
 - gd32a50x
 
-  - `SystemCoreClockUpdate` function contain an `pllmf` calculate error.  
+  - `SystemCoreClockUpdate` function contain an `pllmf` calculate error.
     Fix by change `0xFU` to `RCU_CFG0_PLLMF`:
     ``` diff
       /* PLL multiplication factor */
