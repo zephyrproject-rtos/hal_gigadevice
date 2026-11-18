@@ -6,6 +6,7 @@ Usage::
     python3 gd32headers.py [-p /path/to/HAL] [-o /path/to/output_dir]
 
 Copyright (c) 2022 Teslabs Engineering S.L.
+Copyright (c) 2026 GigaDevice Semiconductor Inc.
 
 SPDX-License-Identifier: Apache-2.0
 """
@@ -35,9 +36,13 @@ def main(hal_path, output):
             continue
 
         # obtain series API headers
+        # anchor on series name: both series (gd32h73x_75x) and API
+        # (i2c_add) may contain underscores
         series_headers = entry / "standard_peripheral" / "include"
-        for header in series_headers.iterdir():
-            m = re.match(r"^gd32[a-z0-9]+_([a-z0-9]+)\.h$", header.name)
+        api_re = re.compile(rf"^{re.escape(entry.name)}_([a-z0-9_]+)\.h$")
+        series_apis = dict()
+        for header in sorted(series_headers.iterdir()):
+            m = api_re.match(header.name)
             if not m:
                 continue
 
@@ -47,9 +52,16 @@ def main(hal_path, output):
             if api == "libopt":
                 continue
 
-            if api not in apis:
-                apis[api] = list()
-            apis[api].append(entry.name)
+            series_apis[api] = header.name
+
+        for api, header in series_apis.items():
+            # merge companion header (e.g. i2c_add) into its base API (i2c)
+            bases = [b for b in series_apis if api.startswith(b + "_")]
+            if bases:
+                api = max(bases, key=len)
+
+            apis.setdefault(api, dict()).setdefault(entry.name, list())
+            apis[api][entry.name].append(header)
 
     if output.exists():
         shutil.rmtree(output)
@@ -64,10 +76,11 @@ def main(hal_path, output):
             f.write(" * SPDX-License-Identifier: Apache-2.0\n")
             f.write(" */\n\n")
 
-            for i, series in enumerate(all_series):
+            for i, (series, headers) in enumerate(all_series.items()):
                 f.write("#if" if i == 0 else "#elif")
                 f.write(f" defined(CONFIG_SOC_SERIES_{series.upper()})\n")
-                f.write(f"#include <{series}_{api}.h>\n")
+                for header in headers:
+                    f.write(f"#include <{header}>\n")
             f.write("#endif\n")
 
 
