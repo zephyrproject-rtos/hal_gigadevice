@@ -8,4 +8,6 @@
 #include <gd32f4xx_dci.h>
 #elif defined(CONFIG_SOC_SERIES_GD32F527)
 #include <gd32f527_dci.h>
+#elif defined(CONFIG_SOC_SERIES_GD32H73X_75X)
+#include <gd32h73x_75x_dci.h>
 #endif
