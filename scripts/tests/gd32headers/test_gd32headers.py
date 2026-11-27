@@ -1,6 +1,6 @@
 """
 Copyright (c) 2022 Teslabs Engineering S.L.
-SPDX-License-Identifier: Apache 2.0
+SPDX-License-Identifier: Apache-2.0
 """
 
 from gd32headers import main

@@ -16,7 +16,7 @@
 # - 256Kb  Flash,  96Kb  SRAM: C
 #
 # Copyright (c) 2022 Teslabs Engineering S.L.
-# SPDX-License-Identifier: Apache 2.0
+# SPDX-License-Identifier: Apache-2.0
 
 model: afio
 

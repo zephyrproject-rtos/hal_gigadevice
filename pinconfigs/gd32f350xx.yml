@@ -19,7 +19,7 @@
 # - 128Kb Flash, 16Kb SRAM: B
 #
 # Copyright (c) 2021 BrainCo Inc.
-# SPDX-License-Identifier: Apache 2.0
+# SPDX-License-Identifier: Apache-2.0
 
 model: af
 
