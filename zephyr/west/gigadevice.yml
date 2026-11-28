@@ -1,0 +1,9 @@
+# Copyright (c) 2023 YuLong Yao <feilongphone@gmail.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+pyocd-packages:
+  - pack: gd32e103 # pack in mdk website
+  - pack: gd32a503 # pack not in mdk website
+    url: https://www.gd32mcu.com/download/down/document_id/405/path_type/1
+    hash: 23c8840812ef9d86fbb87bca7d9c452c71bd9291
